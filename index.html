@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="es" id="landingHtml" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Nieta de Portella — Pastelería fina y obrador</title>
+  <meta name="description" content="Cupcakes de autor, tartas y cajas regalo de La Nieta de Portella. Horneado diario y pedidos directos por WhatsApp.">
+  <meta name="theme-color" content="#B9321B">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script>
+    try {
+      if (localStorage.getItem("lnp-theme") === "dark") document.documentElement.classList.add("dark");
+    } catch (error) {}
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="/js/tailwind-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="bg-light-surface text-light-on-surface dark:bg-dark-surface dark:text-dark-on-surface font-body antialiased transition-colors duration-300">
+  <div class="hidden lg:block">
+<!-- ================================================= -->
+  <!-- BARRA DE ANUNCIOS SUPERIOR                        -->
+  <!-- ================================================= -->
+  <div class="bg-light-primary dark:bg-dark-primary text-white text-xs font-semibold py-2 px-4 text-center flex items-center justify-center gap-2 tracking-wide">
+    <span class="material-symbols-outlined text-sm">schedule</span>
+    <span>Horneado fresco cada mañana · Entregas y encargos directos en el día vía WhatsApp</span>
+    <span class="hidden md:inline-block opacity-75">|</span>
+    <span class="hidden md:inline-block font-normal">Obrador Artesanal · #lanietacambia</span>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- NAVEGACIÓN PRINCIPAL (DESKTOP & MOBILE HEADER)    -->
+  <!-- ================================================= -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-dark-surface/90 glass-nav border-b border-light-outline-variant/50 dark:border-dark-outline-variant/60 transition-colors">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logotipo & Marca -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-light-primary dark:bg-dark-primary flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+            <line x1="12" y1="6" x2="12" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg md:text-xl text-light-primary dark:text-dark-primary tracking-tight leading-tight">
+            LA NIETA DE PORTELLA
+          </span>
+          <span class="font-label text-[10px] md:text-xs uppercase tracking-widest text-light-on-surface-variant dark:text-dark-on-surface-variant font-semibold">
+            Pastelería Fina · Obrador de Autor
+          </span>
+        </div>
+      </a>
+
+      <!-- Enlaces de Navegación de Escritorio -->
+      <nav class="hidden lg:flex items-center gap-6 font-label text-sm font-semibold">
+        <a href="/app/" class="text-light-primary dark:text-dark-primary hover:opacity-80 transition-colors">
+          App del obrador
+        </a>
+        <a href="#creaciones" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+          Carta &amp; Cupcakes
+        </a>
+        <a href="#obrador" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+          El Obrador
+        </a>
+        <a href="#eventos" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+          Tartas de Celebración
+        </a>
+        <a href="#como-pedir" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+          Cómo Pedir
+        </a>
+        <a href="#opiniones" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+          Reseñas
+        </a>
+      </nav>
+
+      <!-- Botón de Acción Principal & Selector de Tema -->
+      <div class="flex items-center gap-3">
+        <!-- Switch Tema Claro / Oscuro -->
+        <button type="button" onclick="toggleTheme()" aria-label="Alternar tema" class="w-10 h-10 rounded-full bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline-variant flex items-center justify-center text-light-primary dark:text-dark-primary hover:scale-105 active:scale-95 transition-all shadow-sm" title="Cambiar Modo">
+          <span id="themeIcon" class="material-symbols-outlined text-lg">dark_mode</span>
+        </button>
+
+        <!-- CTA Pedir por WhatsApp -->
+        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20consultar%20el%20horneado%20de%20hoy%20y%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp hover:bg-[#1ebd59] text-white font-label text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all">
+          <span class="material-symbols-outlined text-lg">chat</span>
+          <span>Pedir por WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================================================= -->
+  <!-- SECCIÓN HERO (PORTADA PRINCIPAL)                  -->
+  <!-- ================================================= -->
+  <section id="inicio" class="relative overflow-hidden hero-gradient pt-12 pb-20 lg:pt-20 lg:pb-32 border-b border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Contenido Textual Hero -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Insignia de Calidad -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-light-primary-container/80 dark:bg-dark-primary-container/80 border border-light-outline-variant/50 text-light-primary dark:text-dark-primary text-xs font-bold font-label">
+          <span class="material-symbols-outlined text-sm">stars</span>
+          <span>Repostería Fina de Autor · Horneada en el Día</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-light-on-surface dark:text-dark-on-surface font-extrabold leading-[1.12] tracking-tight">
+          Bocados artesanales que convierten cada momento en <span class="text-light-primary dark:text-dark-primary italic font-serif">una celebración.</span>
+        </h1>
+
+        <p class="font-body text-base sm:text-lg text-light-on-surface-variant dark:text-dark-on-surface-variant max-w-2xl leading-relaxed">
+          En <strong>La Nieta de Portella</strong> elaboramos cada cupcake, tarta y postre con ingredientes nobles: mantequilla de obrador, cacao de origen y flores silvestres. Sin aditivos, sin prisa, con el sabor auténtico de la pastelería tradicional.
+        </p>
+
+        <!-- CTAs Hero -->
+        <div class="pt-2 flex flex-wrap items-center gap-4">
+          <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20hacer%20un%20encargo%20especial" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-light-primary dark:bg-dark-primary text-white font-label text-base font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all badge-glow">
+            <span class="material-symbols-outlined text-xl">shopping_bag</span>
+            <span>Hacer Encargo Inmediato</span>
+          </a>
+
+          <a href="#creaciones" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white dark:bg-dark-surface-container-high border border-light-outline-variant dark:border-dark-outline-variant text-light-on-surface dark:text-dark-on-surface font-label text-base font-semibold hover:bg-light-surface-container transition-all shadow-sm">
+            <span>Ver Carta de Hoy</span>
+            <span class="material-symbols-outlined text-lg">arrow_downward</span>
+          </a>
+        </div>
+
+        <!-- Métricas y Puntos de Confianza -->
+        <div class="pt-8 border-t border-light-outline-variant/40 dark:border-dark-outline-variant/60 grid grid-cols-3 gap-6 max-w-lg">
+          <div>
+            <span class="block font-display text-2xl sm:text-3xl font-bold text-light-primary dark:text-dark-primary">100%</span>
+            <span class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">Artesanal &amp; Natural</span>
+          </div>
+          <div>
+            <span class="block font-display text-2xl sm:text-3xl font-bold text-light-primary dark:text-dark-primary">07:00</span>
+            <span class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">Horneado Diario</span>
+          </div>
+          <div>
+            <span class="block font-display text-2xl sm:text-3xl font-bold text-light-primary dark:text-dark-primary">4.9 ★</span>
+            <span class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">+850 Clientes Felices</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Imagen Hero Destacada con Tarjetas Flotantes -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-dark-surface-container aspect-[4/5] max-w-md mx-auto">
+          <img src="/assets/hero.jpg" alt="Mesa de repostería fina La Nieta de Portella" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 text-white">
+            <span class="px-2.5 py-1 rounded-full bg-light-primary text-white text-[11px] font-bold uppercase tracking-wider">
+              Colección Primavera
+            </span>
+            <h2 class="font-display text-2xl font-bold mt-2">Boutique &amp; Delicatessen</h2>
+            <p class="text-xs text-white/90 mt-1">Cajas surtidas con flores comestibles y glaseados sedosos.</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta Flotante: WhatsApp Directo -->
+        <div class="absolute -bottom-6 -left-4 sm:left-4 bg-white/95 dark:bg-dark-surface-container-high/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-light-outline-variant/60 dark:border-dark-outline-variant flex items-center gap-3 max-w-xs animate-bounce" style="animation-duration: 4s;">
+          <div class="w-10 h-10 rounded-full bg-whatsapp/20 text-whatsapp flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">chat</span>
+          </div>
+          <div>
+            <h3 class="font-title text-xs font-bold text-light-on-surface dark:text-dark-on-surface">Atención Directa</h3>
+            <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Respondemos tus dudas y fotos de referencia en minutos.</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta Flotante: Sello de Frescura -->
+        <div class="absolute -top-4 -right-4 bg-white/95 dark:bg-dark-surface-container-high/95 backdrop-blur-md p-3.5 rounded-2xl shadow-lg border border-light-outline-variant/60 dark:border-dark-outline-variant flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-light-primary dark:text-dark-primary text-2xl">eco</span>
+          <div>
+            <span class="font-label text-xs font-bold block">Huevos Camperos</span>
+            <span class="text-[10px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Materia prima local</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- SECCIÓN CREACIONES DESTACADAS (CARTA)             -->
+  <!-- ================================================= -->
+  <section id="creaciones" class="py-20 bg-light-surface dark:bg-dark-surface">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="font-label text-xs uppercase tracking-widest text-light-primary dark:text-dark-primary font-bold">
+          Nuestras Creaciones Estrella
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-light-on-surface dark:text-dark-on-surface">
+          Pequeñas joyas de repostería con personalidad
+        </h2>
+        <p class="text-sm sm:text-base text-light-on-surface-variant dark:text-dark-on-surface-variant">
+          Cada bocado cuenta una historia de sabor equilibrado, texturas envolventes y una presentación impecable digna de regalar.
+        </p>
+      </div>
+
+      <!-- Parrilla de Productos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Producto 1: Red Velvet -->
+        <article class="rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 card-craft flex flex-col justify-between group">
+          <div>
+            <div class="relative aspect-square overflow-hidden bg-light-surface-container">
+              <img src="/assets/red-velvet.jpg" alt="Cupcake Red Velvet &amp; Vainilla" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-light-primary text-white font-label text-[11px] font-bold tracking-wide shadow-sm">
+                Más Vendido
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-light-primary dark:text-dark-primary">Cupcake Clásico</span>
+                <span class="font-title text-base font-bold text-light-primary dark:text-dark-primary">3,80 €</span>
+              </div>
+              <h3 class="font-display text-lg font-bold text-light-on-surface dark:text-dark-on-surface">
+                Red Velvet &amp; Vainilla Bourbon
+              </h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed line-clamp-2">
+                Bizcocho aterciopelado con cacao puro, glaseado esponjoso de mascarpone y perlas perladas.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-2 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+            <a href="https://wa.me/?text=Hola!%20Quiero%20pedir%20Cupcake%20Red%20Velvet%20(3.80€)" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-light-surface-container dark:bg-dark-surface-container hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-white text-light-primary dark:text-dark-primary font-label text-xs font-bold transition-all flex items-center justify-center gap-2 border border-light-outline-variant/50">
+              <span class="material-symbols-outlined text-sm">chat</span>
+              <span>Encargar vía WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Producto 2: Pistacho & Rosa -->
+        <article class="rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 card-craft flex flex-col justify-between group">
+          <div>
+            <div class="relative aspect-square overflow-hidden bg-light-surface-container">
+              <img src="/assets/pistacho.jpg" alt="Cupcake Pistacho &amp; Rosa Silvestre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-light-tertiary text-white font-label text-[11px] font-bold tracking-wide shadow-sm">
+                Edición Botánica
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-light-primary dark:text-dark-primary">Autor Exclusivo</span>
+                <span class="font-title text-base font-bold text-light-primary dark:text-dark-primary">4,20 €</span>
+              </div>
+              <h3 class="font-display text-lg font-bold text-light-on-surface dark:text-dark-on-surface">
+                Pistacho &amp; Rosa Silvestre
+              </h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed line-clamp-2">
+                Pistacho siciliano tostado artesanalmente, agua de rosas y pétalos cristalizados a mano.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-2 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+            <a href="https://wa.me/?text=Hola!%20Quiero%20pedir%20Cupcake%20Pistacho%20y%20Rosa%20(4.20€)" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-light-surface-container dark:bg-dark-surface-container hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-white text-light-primary dark:text-dark-primary font-label text-xs font-bold transition-all flex items-center justify-center gap-2 border border-light-outline-variant/50">
+              <span class="material-symbols-outlined text-sm">chat</span>
+              <span>Encargar vía WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Producto 3: Chocolate Trufado -->
+        <article class="rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 card-craft flex flex-col justify-between group">
+          <div>
+            <div class="relative aspect-square overflow-hidden bg-light-surface-container">
+              <img src="/assets/chocolate.jpg" alt="Cupcake Chocolate Belga Trufado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-light-secondary text-white font-label text-[11px] font-bold tracking-wide shadow-sm">
+                Intenso 70%
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-light-primary dark:text-dark-primary">Puro Cacao</span>
+                <span class="font-title text-base font-bold text-light-primary dark:text-dark-primary">3,90 €</span>
+              </div>
+              <h3 class="font-display text-lg font-bold text-light-on-surface dark:text-dark-on-surface">
+                Chocolate Belga &amp; Oro
+              </h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed line-clamp-2">
+                Corazón cremoso trufado, cobertura fundente de chocolate negro y copos de oro comestible.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-2 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+            <a href="https://wa.me/?text=Hola!%20Quiero%20pedir%20Cupcake%20Chocolate%20Belga%20(3.90€)" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-light-surface-container dark:bg-dark-surface-container hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-white text-light-primary dark:text-dark-primary font-label text-xs font-bold transition-all flex items-center justify-center gap-2 border border-light-outline-variant/50">
+              <span class="material-symbols-outlined text-sm">chat</span>
+              <span>Encargar vía WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Producto 4: Tarta Celebración -->
+        <article class="rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 card-craft flex flex-col justify-between group">
+          <div>
+            <div class="relative aspect-square overflow-hidden bg-light-surface-container">
+              <img src="/assets/tarta.jpg" alt="Tarta de Celebración Personalizada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-light-primary text-white font-label text-[11px] font-bold tracking-wide shadow-sm">
+                Celebraciones
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-light-primary dark:text-dark-primary">8-10 Raciones</span>
+                <span class="font-title text-base font-bold text-light-primary dark:text-dark-primary">28,00 €</span>
+              </div>
+              <h3 class="font-display text-lg font-bold text-light-on-surface dark:text-dark-on-surface">
+                Tarta Flores &amp; Higos Confitados
+              </h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed line-clamp-2">
+                Crema ligera de vainilla, bizcocho húmedo de almendra y decoración botánica personalizada.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-2 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+            <a href="https://wa.me/?text=Hola!%20Quiero%20consultar%20por%20la%20Tarta%20de%20Celebración%20(28.00€)" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-light-surface-container dark:bg-dark-surface-container hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary dark:hover:text-white text-light-primary dark:text-dark-primary font-label text-xs font-bold transition-all flex items-center justify-center gap-2 border border-light-outline-variant/50">
+              <span class="material-symbols-outlined text-sm">chat</span>
+              <span>Encargar vía WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Banner de Cajas de Regalo -->
+      <div class="mt-14 p-8 rounded-3xl bg-gradient-to-r from-light-primary-container/70 via-light-surface-container to-light-tertiary-container/60 dark:from-dark-surface-container-high dark:to-dark-surface-container border border-light-outline-variant/50 dark:border-dark-outline-variant flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-widest text-light-primary dark:text-dark-primary font-label">Para Ocasiones Especiales</span>
+          <h3 class="font-display text-2xl font-bold">Cajas Regalo con Lazos de Seda y Tarjeta Caligráfica</h3>
+          <p class="text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant max-w-xl">
+            Sorprende a quien más quieres. Preparamos selecciones de 4, 6 o 12 cupcakes empaquetados como una joya con tu mensaje manuscrito.
+          </p>
+        </div>
+        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quiero%20encargar%20una%20Caja%20Regalo%20personalizada" target="_blank" class="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-light-primary dark:bg-dark-primary text-white font-label text-sm font-bold shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-base">featured_seasonal_and_gifts</span>
+          <span>Configurar Caja Regalo</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- SECCIÓN EL OBRADOR (VALORES Y FILOSOFÍA)          -->
+  <!-- ================================================= -->
+  <section id="obrador" class="py-20 bg-light-surface-container-lowest dark:bg-dark-surface-container-lowest border-y border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Imagen de Composición / Detalle -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="relative rounded-3xl overflow-hidden shadow-xl aspect-square">
+          <img src="/assets/pistacho.jpg" alt="Detalle artesanal repostería La Nieta" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+          <div class="absolute bottom-5 left-5 text-white">
+            <span class="font-serif italic text-lg block">&#34;El secreto está en el tiempo que le dedicas a cada detalle.&#34;</span>
+            <span class="text-xs font-semibold text-rose-200 mt-1 block">Obrador Portella</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto del Obrador -->
+      <div class="lg:col-span-7 space-y-6">
+        <span class="font-label text-xs uppercase tracking-widest text-light-primary dark:text-dark-primary font-bold">
+          Tradición &amp; Cuidado
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-light-on-surface dark:text-dark-on-surface leading-tight">
+          El obrador donde la repostería recupera su alma
+        </h2>
+        <p class="font-body text-base text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+          Nacimos con la vocación de devolver a la pastelería ese perfume a mantequilla recién horneada que llena la calle al amanecer. En <strong>La Nieta de Portella</strong> no existen premezclas ni procesos industriales. Cada masa reposa lo necesario y cada decoración se coloca con pinzas y cariño.
+        </p>
+
+        <!-- Puntos Fuertes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-3">
+          <div class="p-4 rounded-2xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 dark:border-dark-outline-variant/50 shadow-sm flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-light-primary/10 text-light-primary dark:text-dark-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">bakery_dining</span>
+            </div>
+            <div>
+              <h3 class="font-title text-sm font-bold">Horneado Diario</h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant mt-0.5">Producción limitada diaria para garantizar esponjosidad absoluta.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 dark:border-dark-outline-variant/50 shadow-sm flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-light-tertiary/10 text-light-tertiary dark:text-dark-tertiary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">nest_eco_leaf</span>
+            </div>
+            <div>
+              <h3 class="font-title text-sm font-bold">Ingredientes Puros</h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant mt-0.5">Vainilla de Madagascar, cacao belga y frutos secos mediterráneos.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 dark:border-dark-outline-variant/50 shadow-sm flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-light-secondary/10 text-light-secondary dark:text-dark-secondary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">palette</span>
+            </div>
+            <div>
+              <h3 class="font-title text-sm font-bold">Diseños a Medida</h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant mt-0.5">Paletas de color, temática de bodas, aniversarios y eventos corporativos.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 dark:border-dark-outline-variant/50 shadow-sm flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-whatsapp/10 text-whatsapp flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">bolt</span>
+            </div>
+            <div>
+              <h3 class="font-title text-sm font-bold">Respuesta Ágil</h3>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant mt-0.5">Coordinamos el encargo, la dedicatoria y el horario directamente por chat.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- CÓMO PEDIR EN 3 PASOS                             -->
+  <!-- ================================================= -->
+  <section id="como-pedir" class="py-20 bg-light-surface dark:bg-dark-surface">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="font-label text-xs uppercase tracking-widest text-light-primary dark:text-dark-primary font-bold">
+          Sencillo &amp; Cercano
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-light-on-surface dark:text-dark-on-surface">
+          Cómo pedir tus bocados favoritos
+        </h2>
+        <p class="text-sm sm:text-base text-light-on-surface-variant dark:text-dark-on-surface-variant">
+          Sin registros largos ni formularios fríos. Una conversación directa con el obrador.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Paso 1 -->
+        <div class="relative p-7 rounded-3xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant text-center space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-light-primary text-white flex items-center justify-center font-display text-xl font-bold mx-auto shadow-md">
+            1
+          </div>
+          <h3 class="font-display text-xl font-bold text-light-on-surface dark:text-dark-on-surface">Elige tus Sabores</h3>
+          <p class="text-xs sm:text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+            Explora nuestra carta o dinos qué evento tienes en mente (cumpleaños, cena romántica o antojo personal).
+          </p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="relative p-7 rounded-3xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant text-center space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-light-secondary text-white flex items-center justify-center font-display text-xl font-bold mx-auto shadow-md">
+            2
+          </div>
+          <h3 class="font-display text-xl font-bold text-light-on-surface dark:text-dark-on-surface">Escríbenos al WhatsApp</h3>
+          <p class="text-xs sm:text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+            Envía tu selección, la fecha deseada, dirección de entrega y el mensaje que quieras incluir en la tarjeta de regalo.
+          </p>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="relative p-7 rounded-3xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant text-center space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-whatsapp text-white flex items-center justify-center font-display text-xl font-bold mx-auto shadow-md">
+            3
+          </div>
+          <h3 class="font-display text-xl font-bold text-light-on-surface dark:text-dark-on-surface">Recibe Recién Horneado</h3>
+          <p class="text-xs sm:text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+            Te confirmamos el horario exacto y lo entregamos en una caja cuidada hasta el último pliegue, listo para disfrutar.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Botón Central CTA -->
+      <div class="mt-12 text-center">
+        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20hacer%20un%20pedido%20para%20esta%20semana" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-whatsapp hover:bg-[#1ebd59] text-white font-label text-base font-bold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-2xl">chat</span>
+          <span>Iniciar Encargo por WhatsApp Ahora</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- RESEÑAS & CLIENTES FELICES                        -->
+  <!-- ================================================= -->
+  <section id="opiniones" class="py-20 bg-light-surface-container-lowest dark:bg-dark-surface-container-lowest border-t border-light-outline-variant/40 dark:border-dark-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+        <span class="font-label text-xs uppercase tracking-widest text-light-primary dark:text-dark-primary font-bold">
+          Testimonios
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-light-on-surface dark:text-dark-on-surface">
+          Palabras dulces de nuestros clientes
+        </h2>
+        <div class="flex items-center justify-center gap-1 text-amber-500">
+          <span class="material-symbols-outlined text-lg fill-current">star</span>
+          <span class="material-symbols-outlined text-lg fill-current">star</span>
+          <span class="material-symbols-outlined text-lg fill-current">star</span>
+          <span class="material-symbols-outlined text-lg fill-current">star</span>
+          <span class="material-symbols-outlined text-lg fill-current">star</span>
+          <span class="text-xs font-bold text-light-on-surface dark:text-dark-on-surface ml-2">4.9 / 5 en más de 850 encargos</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Opinión 1 -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/50 dark:border-dark-outline-variant/50 shadow-sm space-y-4">
+          <div class="flex items-center gap-1 text-amber-500">
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+          <p class="font-serif italic text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+            &#34;El cupcake de pistacho y rosa es una obra de arte. La textura de la masa es de otro planeta y el glaseado no empalaga nada. El pedido por WhatsApp fue súper rápido y amable.&#34;
+          </p>
+          <div class="pt-3 border-t border-light-outline-variant/30 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-light-primary-container text-light-primary font-bold text-xs flex items-center justify-center">
+              CS
+            </div>
+            <div>
+              <h3 class="font-title text-xs font-bold">Clara Soler</h3>
+              <p class="text-[10px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Celebración Aniversario</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opinión 2 -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/50 dark:border-dark-outline-variant/50 shadow-sm space-y-4">
+          <div class="flex items-center gap-1 text-amber-500">
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+          <p class="font-serif italic text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+            &#34;Encargué la tarta de higos y flores para el cumpleaños de mi madre y todos los invitados se quedaron sin palabras. Presentación de lujo y sabor insuperable.&#34;
+          </p>
+          <div class="pt-3 border-t border-light-outline-variant/30 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-light-secondary-container text-light-secondary font-bold text-xs flex items-center justify-center">
+              MR
+            </div>
+            <div>
+              <h3 class="font-title text-xs font-bold">Marcos Ramos</h3>
+              <p class="text-[10px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Encargo Personalizado</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opinión 3 -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/50 dark:border-dark-outline-variant/50 shadow-sm space-y-4">
+          <div class="flex items-center gap-1 text-amber-500">
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+            <span class="material-symbols-outlined text-sm">star</span>
+          </div>
+          <p class="font-serif italic text-sm text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+            &#34;La caja regalo con el lazo burdeos y la tarjeta personalizada le alegró el día a mi pareja. Se nota el amor y la dedicación en cada detalle.&#34;
+          </p>
+          <div class="pt-3 border-t border-light-outline-variant/30 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-light-tertiary-container text-light-tertiary font-bold text-xs flex items-center justify-center">
+              LT
+            </div>
+            <div>
+              <h3 class="font-title text-xs font-bold">Laura Torrens</h3>
+              <p class="text-[10px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Caja de Regalo 6 uds.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- FOOTER                                            -->
+  <!-- ================================================= -->
+  <footer class="bg-neutral-900 text-neutral-300 py-16 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-10">
+      
+      <!-- Columna Marca -->
+      <div class="md:col-span-4 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-light-primary text-white flex items-center justify-center shadow-md">
+            <svg class="w-5 h-5 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+              <line x1="12" y1="6" x2="12" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line>
+            </svg>
+          </div>
+          <span class="font-display font-bold text-xl text-white tracking-tight">LA NIETA DE PORTELLA</span>
+        </div>
+        <p class="text-xs text-neutral-400 leading-relaxed max-w-sm">
+          Obrador artesanal de alta repostería fina. Horneado fresco, materias primas de cercanía y pedidos directos por WhatsApp para que todo llegue perfecto.
+        </p>
+        <span class="inline-block text-[11px] font-bold text-rose-300">#lanietacambia</span>
+      </div>
+
+      <!-- Columna Enlaces -->
+      <div class="md:col-span-3 space-y-3">
+        <h4 class="font-title text-sm font-bold text-white uppercase tracking-wider">Navegación</h4>
+        <ul class="space-y-2 text-xs text-neutral-400">
+          <li><a href="#creaciones" class="hover:text-white transition-colors">Carta de Cupcakes</a></li>
+          <li><a href="#obrador" class="hover:text-white transition-colors">Filosofía del Obrador</a></li>
+          <li><a href="#eventos" class="hover:text-white transition-colors">Tartas para Bodas &amp; Eventos</a></li>
+          <li><a href="#como-pedir" class="hover:text-white transition-colors">Guía de Pedidos</a></li>
+          <li><a href="/app/" class="hover:text-white transition-colors text-light-primary dark:text-dark-primary font-bold">Ver App Móvil Interactiva →</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna Horarios & Contacto -->
+      <div class="md:col-span-5 space-y-3">
+        <h4 class="font-title text-sm font-bold text-white uppercase tracking-wider">Obrador &amp; Contacto</h4>
+        <div class="space-y-2 text-xs text-neutral-400">
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-light-primary">location_on</span>
+            <span>Calle de los Dulces Artesanos, 14 · Obrador Central</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-whatsapp">chat</span>
+            <span>WhatsApp directo de pedidos: <strong class="text-white">+34 600 000 000</strong></span>
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-light-primary">schedule</span>
+            <span>Martes a Domingo: 08:30h a 20:30h (Lunes reposo de masas)</span>
+          </p>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-whatsapp text-white text-xs font-bold hover:bg-[#1ebd59] transition-all">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            <span>Chatear con el Obrador</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto px-6 pt-10 mt-10 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-500 gap-4">
+      <p>© 2026 La Nieta de Portella. Todos los derechos reservados.</p>
+      <p>Diseño y Obrador Artesanal de Repostería Fina.</p>
+    </div>
+  </footer>
+
+  <!-- Script interactivo de alternancia de tema -->
+  </div>
+  <div class="lg:hidden pb-28">
+<!-- ================================================= -->
+  <!-- BARRA DE ANUNCIOS SUPERIOR MÓVIL                  -->
+  <!-- ================================================= -->
+  <div class="bg-light-primary dark:bg-dark-primary text-white text-[11px] font-semibold py-1.5 px-3 text-center flex items-center justify-center gap-1.5">
+    <span class="material-symbols-outlined text-xs">schedule</span>
+    <span>Horneado de hoy listo · Pedidos directos vía WhatsApp</span>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- HEADER MÓVIL FIJO CON MARCA & ACCIONES            -->
+  <!-- ================================================= -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-dark-surface/90 glass-nav border-b border-light-outline-variant/50 dark:border-dark-outline-variant/60 px-4 py-3 flex items-center justify-between">
+    <!-- Logotipo & Título -->
+    <a href="#inicio-movil" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-full bg-light-primary dark:bg-dark-primary flex items-center justify-center text-white shadow-sm shrink-0">
+        <svg class="w-5 h-5 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+          <line x1="12" y1="6" x2="12" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></line>
+        </svg>
+      </div>
+      <div>
+        <span class="font-display font-bold text-sm tracking-tight text-light-primary dark:text-dark-primary block leading-none">
+          LA NIETA DE PORTELLA
+        </span>
+        <span class="font-label text-[9px] uppercase tracking-widest text-light-on-surface-variant dark:text-dark-on-surface-variant font-semibold">
+          Pastelería Fina
+        </span>
+      </div>
+    </a>
+
+    <!-- Acciones Rápidas: Alternar Tema & Enlace a App -->
+    <div class="flex items-center gap-2">
+      <button type="button" onclick="toggleTheme()" aria-label="Cambiar tema claro u oscuro" class="w-8 h-8 rounded-full bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline-variant flex items-center justify-center text-light-primary dark:text-dark-primary active:scale-90 transition-transform">
+        <span id="themeToggleIcon" class="material-symbols-outlined text-[17px]">dark_mode</span>
+      </button>
+
+      <a href="/app/" class="px-2.5 py-1 rounded-full bg-light-primary/10 dark:bg-dark-primary/20 text-light-primary dark:text-dark-primary font-label text-[11px] font-bold border border-light-primary/20 flex items-center gap-1 active:scale-95">
+        <span class="material-symbols-outlined text-xs">touch_app</span>
+        <span>App</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================================================= -->
+  <!-- SECCIÓN HERO COMPACTA (MÓVIL)                     -->
+  <!-- ================================================= -->
+  <section id="inicio-movil" class="hero-gradient-mobile px-4 pt-6 pb-8 border-b border-light-outline-variant/30 dark:border-dark-outline-variant/40 space-y-4">
+    
+    <!-- Etiqueta Insignia -->
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 dark:bg-dark-surface-container/90 border border-light-outline-variant/40 text-light-primary dark:text-dark-primary text-[10px] font-bold font-label shadow-sm">
+      <span class="material-symbols-outlined text-xs">local_fire_department</span>
+      <span>Obrador Artesanal · #lanietacambia</span>
+    </div>
+
+    <!-- Título Principal -->
+    <h1 class="font-display text-2xl sm:text-3xl font-extrabold text-light-on-surface dark:text-dark-on-surface leading-tight tracking-tight">
+      Bocados de autor que enamoran a cada mordisco.
+    </h1>
+
+    <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-body leading-relaxed">
+      Cupcakes finos, tartas botánicas y delicias recién horneadas con mantequilla pura, cacao de origen y flores silvestres comestibles.
+    </p>
+
+    <!-- Imagen Principal con Tarjeta Flotante -->
+    <div class="relative rounded-2xl overflow-hidden shadow-lg border-2 border-white dark:border-dark-surface-container aspect-[4/3] w-full">
+      <img src="/assets/hero.jpg" alt="Mesa de repostería fina" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div>
+      
+      <div class="absolute bottom-3 left-3 right-3 text-white flex items-end justify-between">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-rose-200">Colección Obrador</span>
+          <h2 class="font-display text-base font-bold">Cupcakes &amp; Tartas de Autor</h2>
+        </div>
+        <span class="px-2 py-0.5 rounded-full bg-white/95 text-light-primary text-[10px] font-bold shadow">
+          Recién salidos
+        </span>
+      </div>
+    </div>
+
+    <!-- Píldoras de Confianza Rápidas -->
+    <div class="grid grid-cols-3 gap-2 pt-2 text-center">
+      <div class="p-2 rounded-xl bg-white/80 dark:bg-dark-surface-container/80 border border-light-outline-variant/40">
+        <span class="block font-display text-base font-bold text-light-primary dark:text-dark-primary">100%</span>
+        <span class="text-[9px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">Artesanal</span>
+      </div>
+      <div class="p-2 rounded-xl bg-white/80 dark:bg-dark-surface-container/80 border border-light-outline-variant/40">
+        <span class="block font-display text-base font-bold text-light-primary dark:text-dark-primary">07:00</span>
+        <span class="text-[9px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">Horneado Diario</span>
+      </div>
+      <div class="p-2 rounded-xl bg-white/80 dark:bg-dark-surface-container/80 border border-light-outline-variant/40">
+        <span class="block font-display text-base font-bold text-light-primary dark:text-dark-primary">4.9 ★</span>
+        <span class="text-[9px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">+850 Pedidos</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================================================= -->
+  <!-- CARTA DESTACADA (PRODUCTOS PRINCIPALES)           -->
+  <!-- ================================================= -->
+  <section class="px-4 py-6 space-y-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <span class="font-label text-[10px] uppercase tracking-wider text-light-primary dark:text-dark-primary font-bold">
+          Carta de Hoy
+        </span>
+        <h2 class="font-display text-lg font-bold text-light-on-surface dark:text-dark-on-surface">
+          Creaciones Estrella
+        </h2>
+      </div>
+      <a href="/app/" class="text-xs font-bold text-light-primary dark:text-dark-primary flex items-center gap-0.5">
+        <span>Ver todas</span>
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+
+    <!-- Lista de Tarjetas de Producto Móvil -->
+    <div class="space-y-3">
+      
+      <!-- Producto 1: Red Velvet -->
+      <article class="p-3 rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 flex items-center gap-3 shadow-sm">
+        <div class="w-20 h-20 rounded-xl bg-light-surface-container overflow-hidden shrink-0 relative">
+          <img src="/assets/red-velvet.jpg" alt="Cupcake Red Velvet" class="w-full h-full object-cover">
+          <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded-full bg-light-primary text-white text-[8px] font-bold">Top</span>
+        </div>
+        <div class="flex-1 min-w-0 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-sm font-bold truncate">Red Velvet &amp; Vainilla</h3>
+            <span class="font-title text-xs font-bold text-light-primary dark:text-dark-primary">3,80 €</span>
+          </div>
+          <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant line-clamp-2">
+            Masa sedosa de cacao puro, glaseado mascarpone y toque floral.
+          </p>
+          <div class="pt-0.5">
+            <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quiero%20pedir%20el%20Cupcake%20Red%20Velvet" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-whatsapp hover:underline">
+              <span class="material-symbols-outlined text-xs">chat</span>
+              <span>Pedir por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 2: Pistacho & Rosa -->
+      <article class="p-3 rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 flex items-center gap-3 shadow-sm">
+        <div class="w-20 h-20 rounded-xl bg-light-surface-container overflow-hidden shrink-0 relative">
+          <img src="/assets/pistacho.jpg" alt="Cupcake Pistacho &amp; Rosa" class="w-full h-full object-cover">
+          <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded-full bg-light-tertiary text-white text-[8px] font-bold">Autor</span>
+        </div>
+        <div class="flex-1 min-w-0 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-sm font-bold truncate">Pistacho &amp; Rosa Silvestre</h3>
+            <span class="font-title text-xs font-bold text-light-primary dark:text-dark-primary">4,20 €</span>
+          </div>
+          <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant line-clamp-2">
+            Pistacho tostado siciliano, aroma de rosas y pétalos comestibles.
+          </p>
+          <div class="pt-0.5">
+            <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quiero%20pedir%20el%20Cupcake%20Pistacho%20y%20Rosa" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-whatsapp hover:underline">
+              <span class="material-symbols-outlined text-xs">chat</span>
+              <span>Pedir por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 3: Chocolate Trufado -->
+      <article class="p-3 rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 flex items-center gap-3 shadow-sm">
+        <div class="w-20 h-20 rounded-xl bg-light-surface-container overflow-hidden shrink-0 relative">
+          <img src="/assets/chocolate.jpg" alt="Chocolate Trufado" class="w-full h-full object-cover">
+          <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded-full bg-light-secondary text-white text-[8px] font-bold">70%</span>
+        </div>
+        <div class="flex-1 min-w-0 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-sm font-bold truncate">Chocolate Belga Trufado</h3>
+            <span class="font-title text-xs font-bold text-light-primary dark:text-dark-primary">3,90 €</span>
+          </div>
+          <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant line-clamp-2">
+            Ganache fundente, corazón de trufa y copos de oro comestible.
+          </p>
+          <div class="pt-0.5">
+            <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quiero%20pedir%20el%20Cupcake%20Chocolate%20Belga" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-whatsapp hover:underline">
+              <span class="material-symbols-outlined text-xs">chat</span>
+              <span>Pedir por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Producto 4: Tarta de Celebración -->
+      <article class="p-3 rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant/60 flex items-center gap-3 shadow-sm">
+        <div class="w-20 h-20 rounded-xl bg-light-surface-container overflow-hidden shrink-0 relative">
+          <img src="/assets/tarta.jpg" alt="Tarta de Celebración" class="w-full h-full object-cover">
+          <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded-full bg-light-primary text-white text-[8px] font-bold">Encargo</span>
+        </div>
+        <div class="flex-1 min-w-0 space-y-1">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-sm font-bold truncate">Tarta Flores &amp; Higos</h3>
+            <span class="font-title text-xs font-bold text-light-primary dark:text-dark-primary">28,00 €</span>
+          </div>
+          <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant line-clamp-2">
+            Bizcocho tierno de almendra, 8-10 porciones y diseño a medida.
+          </p>
+          <div class="pt-0.5">
+            <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quiero%20consultar%20por%20la%20Tarta%20de%20Celebración" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-whatsapp hover:underline">
+              <span class="material-symbols-outlined text-xs">chat</span>
+              <span>Consultar Fecha</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- CAJAS REGALO DESTACADAS                           -->
+  <!-- ================================================= -->
+  <section class="px-4 py-4">
+    <div class="p-4 rounded-2xl bg-gradient-to-br from-light-primary-container/80 to-light-surface-container dark:from-dark-surface-container dark:to-dark-surface-container-high border border-light-outline-variant/50 dark:border-dark-outline-variant space-y-2.5">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-light-primary dark:text-dark-primary text-xl">featured_seasonal_and_gifts</span>
+        <h3 class="font-display text-sm font-bold">Cajas Regalo &amp; Lazos de Seda</h3>
+      </div>
+      <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+        Personaliza tu selección en cajas artesanales con dedicatoria caligráfica. Ideal para aniversarios y detalles sorpresa.
+      </p>
+      <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20encargar%20una%20Caja%20Regalo" target="_blank" class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-full bg-light-primary dark:bg-dark-primary text-white text-xs font-bold shadow-sm">
+        <span class="material-symbols-outlined text-sm">chat</span>
+        <span>Configurar Caja por WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- CÓMO FUNCIONA EN 3 PASOS                          -->
+  <!-- ================================================= -->
+  <section class="px-4 py-6 bg-light-surface-container-lowest dark:bg-dark-surface-container-lowest border-y border-light-outline-variant/40 dark:border-dark-outline-variant/50 space-y-4">
+    <div class="text-center space-y-1">
+      <span class="font-label text-[10px] uppercase tracking-wider text-light-primary dark:text-dark-primary font-bold">Directo &amp; Rápido</span>
+      <h2 class="font-display text-base font-bold">Pide en 3 sencillos pasos</h2>
+    </div>
+
+    <div class="space-y-2.5">
+      <div class="p-3 rounded-xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-light-primary text-white flex items-center justify-center font-display text-xs font-bold shrink-0">1</div>
+        <p class="text-xs text-light-on-surface dark:text-dark-on-surface"><strong>Elige tus sabores</strong> de la carta o indícanos tu evento.</p>
+      </div>
+      <div class="p-3 rounded-xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-light-secondary text-white flex items-center justify-center font-display text-xs font-bold shrink-0">2</div>
+        <p class="text-xs text-light-on-surface dark:text-dark-on-surface"><strong>Escríbenos al WhatsApp</strong> con fecha y dedicatoria.</p>
+      </div>
+      <div class="p-3 rounded-xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-whatsapp text-white flex items-center justify-center font-display text-xs font-bold shrink-0">3</div>
+        <p class="text-xs text-light-on-surface dark:text-dark-on-surface"><strong>Recibe recién horneado</strong> en tu puerta en caja gourmet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- RESEÑAS MÓVIL                                     -->
+  <!-- ================================================= -->
+  <section class="px-4 py-6 space-y-4">
+    <div class="text-center space-y-1">
+      <div class="flex items-center justify-center gap-1 text-amber-500">
+        <span class="material-symbols-outlined text-base fill-current">star</span>
+        <span class="material-symbols-outlined text-base fill-current">star</span>
+        <span class="material-symbols-outlined text-base fill-current">star</span>
+        <span class="material-symbols-outlined text-base fill-current">star</span>
+        <span class="material-symbols-outlined text-base fill-current">star</span>
+      </div>
+      <h2 class="font-display text-base font-bold">4.9 / 5 en más de 850 clientes</h2>
+    </div>
+
+    <!-- Carrusel / Tarjeta de Reseña -->
+    <div class="p-4 rounded-2xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/40 dark:border-dark-outline-variant/50 shadow-sm space-y-2.5">
+      <p class="font-serif italic text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed">
+        &#34;El cupcake de pistacho y rosa es una auténtica maravilla. La textura es esponjosa y la presentación insuperable. Pedir por WhatsApp fue súper fácil.&#34;
+      </p>
+      <div class="flex items-center gap-2 pt-1 border-t border-light-outline-variant/30 text-xs">
+        <div class="w-7 h-7 rounded-full bg-light-primary-container text-light-primary font-bold text-[10px] flex items-center justify-center">
+          CS
+        </div>
+        <div>
+          <span class="font-bold block text-[11px]">Clara Soler</span>
+          <span class="text-[9px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Cliente verificada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================= -->
+  <!-- FOOTER MÓVIL                                      -->
+  <!-- ================================================= -->
+  <footer class="bg-neutral-900 text-neutral-300 px-4 py-8 text-center space-y-3">
+    <div class="flex items-center justify-center gap-2">
+      <div class="w-6 h-6 rounded-full bg-light-primary text-white flex items-center justify-center">
+        <svg class="w-3.5 h-3.5 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
+      </div>
+      <span class="font-display font-bold text-sm text-white">LA NIETA DE PORTELLA</span>
+    </div>
+    <p class="text-[11px] text-neutral-400">
+      Repostería Fina de Obrador · Horneado Diario Artesanal
+    </p>
+    <p class="text-[10px] text-neutral-500">
+      Calle de los Dulces Artesanos, 14 · #lanietacambia
+    </p>
+    <div class="pt-2 text-[10px] text-neutral-500 border-t border-neutral-800">
+      © 2026 La Nieta de Portella
+    </div>
+  </footer>
+
+  <!-- ================================================= -->
+  <!-- BARRA DE ACCIÓN FLOTANTE FIJA INFERIOR (CTA)      -->
+  <!-- ================================================= -->
+  <aside class="fixed bottom-0 inset-x-0 z-50 bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-light-outline-variant/60 dark:border-dark-outline-variant/60 p-3 shadow-2xl flex items-center gap-2.5">
+    <a href="/app/" class="w-12 h-12 rounded-2xl bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline-variant flex flex-col items-center justify-center text-light-on-surface dark:text-dark-on-surface active:scale-95 transition-transform shrink-0" title="Abrir App Interactiva">
+      <span class="material-symbols-outlined text-lg">storefront</span>
+      <span class="text-[9px] font-bold">App</span>
+    </a>
+
+    <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20consultar%20el%20horneado%20de%20hoy%20y%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="flex-1 h-12 rounded-2xl bg-whatsapp hover:bg-[#1ebd59] text-white font-label text-sm font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all badge-pop">
+      <span class="material-symbols-outlined text-xl">chat</span>
+      <span>Pedir por WhatsApp</span>
+    </a>
+  </aside>
+
+  <!-- Script interactivo de alternancia de tema -->
+  </div>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito &amp; Envío WhatsApp — La Nieta de Portella (Tema Claro)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#E2492D',
+        'whatsapp': '#25D366',
+        'whatsapp-hover': '#20BA5A',
+        'light-primary': '#B9321B',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FFDAD3',
+        'light-on-primary-container': '#3E0400',
+        'light-secondary': '#8F4C38',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#FFDBCF',
+        'light-on-secondary-container': '#380D02',
+        'light-tertiary': '#77574E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFDBCF',
+        'light-on-tertiary-container': '#2C150F',
+        'light-surface': '#FFF8F6',
+        'light-on-surface': '#231A18',
+        'light-surface-container-low': '#FCF1EE',
+        'light-surface-container': '#F6ECE8',
+        'light-surface-container-high': '#F0E6E2',
+        'light-on-surface-variant': '#534340',
+        'light-outline': '#85736F',
+        'light-outline-variant': '#D8C2BD',
+        'dark-primary': '#FFB4A5',
+        'dark-on-primary': '#650B00',
+        'dark-primary-container': '#772614',
+        'dark-on-primary-container': '#FFDAD3',
+        'dark-secondary': '#FFB4A5',
+        'dark-on-secondary': '#5D180B',
+        'dark-secondary-container': '#7E3021',
+        'dark-on-secondary-container': '#FFDBCF',
+        'dark-tertiary': '#FFB59A',
+        'dark-on-tertiary': '#53220E',
+        'dark-tertiary-container': '#6E3722',
+        'dark-on-tertiary-container': '#FFDBCF',
+        'dark-surface': '#1D100D',
+        'dark-on-surface': '#F8DCD7',
+        'dark-surface-container-low': '#271815',
+        'dark-surface-container': '#2B1C19',
+        'dark-surface-container-high': '#362623',
+        'dark-on-surface-variant': '#E3BEB7',
+        'dark-outline': '#AA8983',
+        'dark-outline-variant': '#5A413B',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '30px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', fontWeight: '600' }],
+        'headline-md-mobile': ['18px', { lineHeight: '24px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '180ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+</head>
+<body class="bg-light-surface text-light-on-surface font-body min-h-[884px] pb-32 antialiased selection:bg-light-primary selection:text-white" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+  <!-- Top App Bar Contextual Claro -->
+  <header class="sticky top-0 z-40 bg-light-surface/95 backdrop-blur-sm border-b border-light-outline-variant/40 px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../home-catalog/HomeCatalog.html" aria-label="Volver al catálogo" class="w-9 h-9 rounded-full bg-light-surface-container flex items-center justify-center text-light-on-surface hover:bg-light-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-xl">arrow_back</span>
+      </a>
+      <div>
+        <h1 class="font-headline text-headline-md-mobile font-bold text-light-on-surface">Mi Carrito Dulce</h1>
+        <p class="text-[11px] text-light-on-surface-variant font-medium">3 delicias preparadas</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="px-2.5 py-1 rounded-full bg-light-primary-container text-light-on-primary-container font-label text-xs font-semibold">
+        Paso final
+      </span>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal del Pedido -->
+  <main class="px-4 pt-4 space-y-5">
+
+    <!-- Banner Informativo de Envío WhatsApp Claro -->
+    <div class="p-3.5 rounded-xl bg-whatsapp/10 border border-whatsapp/30 flex items-start gap-3">
+      <div class="w-8 h-8 rounded-full bg-whatsapp text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+        <span class="material-symbols-outlined text-lg">chat</span>
+      </div>
+      <div>
+        <h2 class="font-title text-sm font-bold text-light-on-surface">Pedido asistido por WhatsApp</h2>
+        <p class="text-xs text-light-on-surface-variant mt-0.5 leading-relaxed font-body">
+          Al confirmar, abriremos tu chat directo con el obrador con el pedido desglosado para coordinar pago por Bizum, hora de recogida o entrega a domicilio.
+        </p>
+      </div>
+    </div>
+
+    <!-- Lista de Artículos en el Carrito -->
+    <section class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="font-headline text-headline-md-mobile text-light-on-surface">Artículos seleccionados</h3>
+        <button type="button" class="text-xs text-light-outline hover:text-light-primary transition-colors">Limpiar</button>
+      </div>
+
+      <!-- Artículo 1: Red Velvet -->
+      <article class="p-3.5 rounded-xl bg-light-surface-container-low border border-light-outline-variant/40 flex items-center gap-3.5 shadow-sm">
+        <div class="w-16 h-16 rounded-lg bg-light-surface-container overflow-hidden shrink-0">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBXcnSEaShDl7b_CMYVrcv3ameX-g_otH7Qq0fJ6FMfdgL9eaSoa06aqocuSpobTFnarRiVNq_sEtpfbek57XMejh2Z1nVotNwhiyxfhkL_q--9mckxYh_6wPA3qrRLl7pbHX7CPR28LzHfh2A4ySIWuhjRAsq907cnc1Q-KKvROJI67z5sg9fspyHIgOiR2tfV7q-VJDDAT_EF3DvZC1g_P9rrxoqywfiGEvCfUOV23muFU_iFHKvvvkSW6g" alt="Cupcake Red Velvet" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-title text-sm font-bold text-light-on-surface truncate">Cupcake Red Velvet &amp; Vainilla</h4>
+          <p class="text-[12px] text-light-on-surface-variant font-body truncate">Glaseado mascarpone · frambuesa</p>
+          <span class="font-title text-sm font-bold text-light-primary tabular-nums">7,60 €</span>
+          <span class="text-[11px] text-light-outline ml-1 font-body">(3,80 € / ud)</span>
+        </div>
+        <div class="flex items-center gap-2 bg-light-surface rounded-full px-2 py-1 border border-light-outline-variant/50">
+          <button type="button" aria-label="Disminuir cantidad" class="w-6 h-6 flex items-center justify-center text-light-on-surface-variant hover:text-light-primary active:scale-90 transition-transform">
+            <span class="material-symbols-outlined text-sm">remove</span>
+          </button>
+          <span class="font-title text-xs font-bold px-1 tabular-nums">2</span>
+          <button type="button" aria-label="Aumentar cantidad" class="w-6 h-6 flex items-center justify-center text-light-on-surface-variant hover:text-light-primary active:scale-90 transition-transform">
+            <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Artículo 2: Pistacho & Rosa -->
+      <article class="p-3.5 rounded-xl bg-light-surface-container-low border border-light-outline-variant/40 flex items-center gap-3.5 shadow-sm">
+        <div class="w-16 h-16 rounded-lg bg-light-surface-container overflow-hidden shrink-0">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAVe5WGtOSy3Jj2G391dwjNfApozI9ZfitpeY2vY9LxKhu5hm_WLZ4yC9MTMfGOuomesHbsnxAmuOUvIUCn1zatbC39oS11JeosFytN4BTRyD-zHkFRECejYliCTM22O0CfQI0qCdyBTfH8oraZYIc0H17Go3sOdCFNdxifGeqB756w5FBowIY9eqx39EaAXQhyuUs5fJdbgIz1sCyghPHBgr8VTMt-jJ8eBAo5VbmgsowRogG6eTrACrZQqUi6Kg" alt="Cupcake Pistacho y Rosa" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-title text-sm font-bold text-light-on-surface truncate">Pistacho &amp; Rosa Silvestre</h4>
+          <p class="text-[12px] text-light-on-surface-variant font-body truncate">Caja individual de regalo</p>
+          <span class="font-title text-sm font-bold text-light-primary tabular-nums">4,20 €</span>
+        </div>
+        <div class="flex items-center gap-2 bg-light-surface rounded-full px-2 py-1 border border-light-outline-variant/50">
+          <button type="button" aria-label="Disminuir cantidad" class="w-6 h-6 flex items-center justify-center text-light-on-surface-variant hover:text-light-primary active:scale-90 transition-transform">
+            <span class="material-symbols-outlined text-sm">remove</span>
+          </button>
+          <span class="font-title text-xs font-bold px-1 tabular-nums">1</span>
+          <button type="button" aria-label="Aumentar cantidad" class="w-6 h-6 flex items-center justify-center text-light-on-surface-variant hover:text-light-primary active:scale-90 transition-transform">
+            <span class="material-symbols-outlined text-sm">add</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Datos para el Mensaje de WhatsApp Claro -->
+    <section class="space-y-3.5 pt-1">
+      <h3 class="font-headline text-headline-md-mobile text-light-on-surface">Detalles de Entrega &amp; Dedicatoria</h3>
+
+      <!-- Tipo de Entrega -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <label class="relative flex flex-col p-3 rounded-xl border-2 border-light-primary bg-light-primary-container/20 cursor-pointer">
+          <input type="radio" name="delivery_type" checked class="sr-only">
+          <div class="flex items-center justify-between mb-1">
+            <span class="material-symbols-outlined text-light-primary text-xl">delivery_dining</span>
+            <span class="w-4 h-4 rounded-full border-2 border-light-primary flex items-center justify-center">
+              <span class="w-2 h-2 rounded-full bg-light-primary"></span>
+            </span>
+          </div>
+          <span class="font-title text-xs font-bold text-light-on-surface">Entrega a domicilio</span>
+          <span class="text-[11px] text-light-on-surface-variant">Zona céntrica · 2,50 €</span>
+        </label>
+
+        <label class="relative flex flex-col p-3 rounded-xl border border-light-outline-variant/60 bg-light-surface-container-low cursor-pointer hover:border-light-outline">
+          <input type="radio" name="delivery_type" class="sr-only">
+          <div class="flex items-center justify-between mb-1">
+            <span class="material-symbols-outlined text-light-on-surface-variant text-xl">store</span>
+            <span class="w-4 h-4 rounded-full border border-light-outline"></span>
+          </div>
+          <span class="font-title text-xs font-bold text-light-on-surface">Recoger en obrador</span>
+          <span class="text-[11px] text-light-on-surface-variant">Gratis · Calle Mayor 14</span>
+        </label>
+      </div>
+
+      <!-- Fecha y Franja Horaria -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <label class="flex flex-col gap-1">
+          <span class="font-label text-xs font-semibold text-light-on-surface">Fecha deseada</span>
+          <div class="relative flex items-center">
+            <input type="text" value="Hoy (En 2 horas)" class="w-full px-3 py-2.5 rounded-lg bg-light-surface-container border border-light-outline-variant text-xs font-medium text-light-on-surface">
+            <span class="material-symbols-outlined absolute right-2.5 text-light-outline text-lg pointer-events-none">calendar_today</span>
+          </div>
+        </label>
+        <label class="flex flex-col gap-1">
+          <span class="font-label text-xs font-semibold text-light-on-surface">Horario preferido</span>
+          <div class="relative flex items-center">
+            <select class="w-full px-3 py-2.5 rounded-lg bg-light-surface-container border border-light-outline-variant text-xs font-medium text-light-on-surface appearance-none pr-8">
+              <option>17:00 - 18:30 h</option>
+              <option>18:30 - 20:00 h</option>
+              <option>Mañana 10:30 h</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-2 text-light-outline text-lg pointer-events-none">arrow_drop_down</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Dedicatoria en Tarjeta de Regalo -->
+      <label class="flex flex-col gap-1.5">
+        <span class="font-label text-xs font-semibold text-light-on-surface flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-accent text-base">favorite</span>
+          Tarjeta caligrafiada de regalo
+        </span>
+        <input type="text" id="cartDedicatoria" value="¡Felicidades por tu nuevo hogar! Disfruta estos dulces." placeholder="Escribe el mensaje para la tarjeta..." class="w-full px-3.5 py-2.5 rounded-lg bg-light-surface-container-low border border-light-outline-variant/70 text-xs text-light-on-surface placeholder:text-light-outline focus:outline-none focus:ring-2 focus:ring-light-primary/30">
+      </label>
+
+      <!-- Dirección / Teléfono -->
+      <label class="flex flex-col gap-1.5">
+        <span class="font-label text-xs font-semibold text-light-on-surface">Tu nombre y dirección</span>
+        <input type="text" id="cartCliente" value="Claudia Ramos · Av. Delicias 42, 3ºB" class="w-full px-3.5 py-2.5 rounded-lg bg-light-surface-container-low border border-light-outline-variant/70 text-xs text-light-on-surface focus:outline-none focus:ring-2 focus:ring-light-primary/30">
+      </label>
+    </section>
+
+    <!-- Resumen de Costes -->
+    <section class="p-4 rounded-xl bg-light-surface-container border border-light-outline-variant/40 space-y-2">
+      <div class="flex justify-between text-xs text-light-on-surface-variant">
+        <span>Subtotal (3 delicias)</span>
+        <span class="font-medium text-light-on-surface tabular-nums">11,80 €</span>
+      </div>
+      <div class="flex justify-between text-xs text-light-on-surface-variant">
+        <span>Envío obrador directo</span>
+        <span class="font-medium text-light-on-surface tabular-nums">2,50 €</span>
+      </div>
+      <div class="flex justify-between text-xs text-light-on-surface-variant">
+        <span>Caja de repostería &amp; lazo</span>
+        <span class="font-medium text-whatsapp font-semibold">Gratis</span>
+      </div>
+      <div class="pt-2 border-t border-light-outline-variant/50 flex justify-between items-baseline">
+        <span class="font-headline text-sm font-bold text-light-on-surface">Total Estimado</span>
+        <span class="font-headline text-lg font-bold text-light-primary tabular-nums">14,30 €</span>
+      </div>
+    </section>
+
+    <!-- Previsualización del Mensaje -->
+    <div class="p-3 rounded-lg bg-light-surface-container-high/60 border border-dashed border-light-outline-variant text-[11px] text-light-on-surface-variant space-y-1">
+      <div class="flex items-center gap-1 font-semibold text-light-on-surface">
+        <span class="material-symbols-outlined text-whatsapp text-sm">visibility</span>
+        Previsualización del mensaje a WhatsApp:
+      </div>
+      <p class="font-mono text-[10px] leading-relaxed bg-white/70 p-2 rounded border border-light-outline-variant/40 text-neutral-800">
+        &#34;Hola La Nieta de Portella ✨ Quisiera encargar: 2x Red Velvet &amp; Vainilla (7.60€) + 1x Pistacho &amp; Rosa (4.20€). Total c/envío: 14.30€. Entrega para Hoy 17h a Claudia Ramos (Av. Delicias 42). Tarjeta: &#39;¡Felicidades por tu nuevo hogar!&#39; ¿Me confirmáis disponibilidad?&#34;
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Sticky Bottom Checkout Bar Especial WhatsApp Claro -->
+  <div class="fixed bottom-14 left-0 right-0 z-40 max-w-[390px] mx-auto px-4 pb-2">
+    <a id="whatsappOrderBtn" href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20%E2%9C%A8%20Quisiera%20encargar%3A%202x%20Red%20Velvet%20(7.60%E2%82%AC)%20%2B%201x%20Pistacho%20%26%20Rosa%20(4.20%E2%82%AC).%20Total%3A%2014.30%E2%82%AC.%20Entrega%20Hoy%20a%20Claudia%20Ramos.%20Tarjeta%3A%20%22%C2%A1Felicidades%20por%20tu%20nuevo%20hogar!%22" target="_blank" class="w-full py-3.5 px-5 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-label font-bold text-sm shadow-xl flex items-center justify-between active:scale-[0.98] transition-all cursor-pointer ring-4 ring-whatsapp/20">
+      <div class="flex items-center gap-2.5">
+        <span class="material-symbols-outlined text-2xl">chat</span>
+        <span class="tracking-wide">Enviar Pedido a WhatsApp</span>
+      </div>
+      <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold tabular-nums">
+        14,30 € →
+      </span>
+    </a>
+  </div>
+
+  <!-- Bottom Navigation Persistente Compartido Claro -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-light-surface/95 backdrop-blur-md border-t border-light-outline-variant/50 max-w-[390px] mx-auto px-4 py-2 flex items-center justify-around shadow-lg">
+    <a href="../home-catalog/HomeCatalog.html" class="flex flex-col items-center gap-1 py-1 text-light-on-surface-variant hover:text-light-primary transition-colors">
+      <span class="material-symbols-outlined text-[24px]">storefront</span>
+      <span class="font-label text-[11px] font-medium">Obrador</span>
+    </a>
+    <a href="../home-catalog/HomeCatalog.html#categorias" class="flex flex-col items-center gap-1 py-1 text-light-on-surface-variant hover:text-light-primary transition-colors">
+      <span class="material-symbols-outlined text-[24px]">category</span>
+      <span class="font-label text-[11px] font-medium">Dulces</span>
+    </a>
+    <a href="../cart-order/CartOrder.html" class="relative flex flex-col items-center gap-1 py-1 text-light-primary transition-colors">
+      <div class="relative">
+        <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: &#39;FILL&#39; 1;">shopping_bag</span>
+        <span class="absolute -top-1 -right-2 min-w-[17px] h-[17px] px-1 rounded-full bg-accent text-white font-label text-[10px] font-bold flex items-center justify-center">
+          3
+        </span>
+      </div>
+      <span class="font-label text-[11px] font-bold">Carrito</span>
+    </a>
+    <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella,%20tengo%20una%20consulta%20sobre%20mi%20pedido" target="_blank" class="flex flex-col items-center gap-1 py-1 text-whatsapp hover:text-whatsapp-hover transition-colors">
+      <span class="material-symbols-outlined text-[24px]">chat</span>
+      <span class="font-label text-[11px] font-medium">WhatsApp</span>
+    </a>
+  </nav>
+
+
+
+</body></html>

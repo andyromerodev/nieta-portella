@@ -1,0 +1,1238 @@
+<!DOCTYPE html><html lang="es" id="appHtml"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Nieta de Portella — Prototipo Interactivo Completo</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#E2492D',
+        'whatsapp': '#25D366',
+        'whatsapp-hover': '#20BA5A',
+        'light-primary': '#B9321B',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FFDAD3',
+        'light-on-primary-container': '#3E0400',
+        'light-secondary': '#8F4C38',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#FFDBCF',
+        'light-on-secondary-container': '#380D02',
+        'light-tertiary': '#77574E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFDBCF',
+        'light-on-tertiary-container': '#2C150F',
+        'light-surface': '#FFF8F6',
+        'light-on-surface': '#231A18',
+        'light-surface-container-low': '#FCF1EE',
+        'light-surface-container': '#F6ECE8',
+        'light-surface-container-high': '#F0E6E2',
+        'light-on-surface-variant': '#534340',
+        'light-outline': '#85736F',
+        'light-outline-variant': '#D8C2BD',
+        'dark-primary': '#FFB4A5',
+        'dark-on-primary': '#650B00',
+        'dark-primary-container': '#772614',
+        'dark-on-primary-container': '#FFDAD3',
+        'dark-secondary': '#FFB4A5',
+        'dark-on-secondary': '#5D180B',
+        'dark-secondary-container': '#7E3021',
+        'dark-on-secondary-container': '#FFDBCF',
+        'dark-tertiary': '#FFB59A',
+        'dark-on-tertiary': '#53220E',
+        'dark-tertiary-container': '#6E3722',
+        'dark-on-tertiary-container': '#FFDBCF',
+        'dark-surface': '#1D100D',
+        'dark-on-surface': '#F8DCD7',
+        'dark-surface-container-low': '#271815',
+        'dark-surface-container': '#2B1C19',
+        'dark-surface-container-high': '#362623',
+        'dark-on-surface-variant': '#E3BEB7',
+        'dark-outline': '#AA8983',
+        'dark-outline-variant': '#5A413B',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '30px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', fontWeight: '600' }],
+        'headline-md-mobile': ['18px', { lineHeight: '24px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '180ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <style>
+    /* Transiciones de pantalla y micro-interacciones */
+    @keyframes screenFadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes badgeBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.35) rotate(-5deg); }
+    }
+    @keyframes popItemIn {
+      from { opacity: 0; transform: scale(0.92) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes toastSlide {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(120px) rotate(360deg); opacity: 0; }
+    }
+
+    .screen-animated-in {
+      animation: screenFadeSlideIn 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .badge-pop {
+      animation: badgeBounce 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .item-pop-in {
+      animation: popItemIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .toast-anim {
+      animation: toastSlide 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Efecto de elevación táctil activa */
+    .touch-bounce {
+      transition: transform 120ms cubic-bezier(0.2, 0, 0, 1), box-shadow 120ms ease;
+    }
+    .touch-bounce:active {
+      transform: scale(0.96);
+    }
+    .card-hover-rise {
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease;
+    }
+    .card-hover-rise:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface dark:bg-dark-surface dark:text-dark-on-surface font-body min-h-[884px] antialiased selection:bg-light-primary selection:text-white transition-colors duration-200" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+  <!-- Toast Notificación Flotante para Acciones del Carrito -->
+  <div id="toastNotification" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 pointer-events-none hidden items-center gap-2 px-4 py-2.5 rounded-full bg-neutral-900/90 dark:bg-white/95 text-white dark:text-neutral-900 shadow-2xl backdrop-blur-md text-xs font-semibold toast-anim">
+    <span class="material-symbols-outlined text-whatsapp text-base">check_circle</span>
+    <span id="toastMessage">¡Delicia añadida al carrito!</span>
+  </div>
+
+  <!-- Contenedor de Confeti Dinámico -->
+  <div id="confettiContainer" class="fixed inset-0 pointer-events-none z-50 overflow-hidden hidden"></div>
+
+  <!-- ========================================== -->
+  <!-- BARRA DE CONTROL DEL PROTOTIPO (Flotante)   -->
+  <!-- ========================================== -->
+  <aside class="sticky top-0 z-50 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md border-b border-light-outline-variant/60 dark:border-dark-outline-variant/60 px-3.5 py-2.5 flex items-center justify-between shadow-sm">
+    <div class="flex items-center gap-2">
+      <!-- Indicador de Marca -->
+      <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white shadow-sm">
+        <svg class="w-5 h-5 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+          <line x1="12" y1="6" x2="12" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
+        </svg>
+      </div>
+      <div>
+        <span class="font-display font-bold text-xs text-light-primary dark:text-dark-primary tracking-tight block">LA NIETA DE PORTELLA</span>
+        <span id="currentScreenLabel" class="text-[10px] font-semibold text-light-on-surface-variant dark:text-dark-on-surface-variant">Catálogo · Obrador</span>
+      </div>
+    </div>
+
+    <!-- Controles rápidos: Switch de Tema y Reset -->
+    <div class="flex items-center gap-2">
+      <button type="button" onclick="toggleAppTheme()" class="px-2.5 py-1 rounded-full bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline-variant text-[11px] font-bold text-light-primary dark:text-dark-primary hover:scale-105 active:scale-95 transition-all flex items-center gap-1 cursor-pointer shadow-sm">
+        <span id="themeBtnIcon" class="material-symbols-outlined text-[15px]">dark_mode</span>
+        <span id="themeBtnText">Oscuro</span>
+      </button>
+
+      <button type="button" onclick="goToScreen(&#39;home&#39;)" aria-label="Ir a Inicio" title="Inicio" class="w-7 h-7 rounded-full bg-light-surface-container dark:bg-dark-surface-container text-light-on-surface dark:text-dark-on-surface flex items-center justify-center hover:opacity-80 active:scale-95 transition-all">
+        <span class="material-symbols-outlined text-base">refresh</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- VISTA 1: CATÁLOGO & OBRADOR (HOME)         -->
+  <!-- ========================================== -->
+  <div id="viewHome" class="block pb-24 px-4 pt-3 space-y-5">
+
+    <!-- Hero Campaña -->
+    <section class="relative rounded-2xl overflow-hidden shadow-sm border border-light-outline-variant/30 dark:border-dark-outline-variant/60 bg-light-surface-container-low dark:bg-dark-surface-container-low">
+      <div class="relative h-44 w-full">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrBf4Bo4RWwhpSn126O8zmhSY91NDvwfliulcCCL_bPFpmmWRc6ShaXP0x3RhEw1frikKEQedmeiB-fMsfXchbR8T6Z7io6EMFOjlYeVx-7-WMQ4VMX4qavrL8nC0u_LWG7LzXMNg6N3dKcJ5avaOiMRwu_hO1y1ll6fRR7m4thzm2f3TXZwDN7vEjgzT8YTXwh_NL_Np-Av3rNE4aDMak7UjeyjMrE47UL62mqnIRMZwDPnQKTGAfxxjn5goe1z7ih8KKM" alt="Mesa de repostería fina" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
+        <div class="absolute top-3 right-3">
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 dark:bg-dark-surface-container-high/90 backdrop-blur-md text-light-primary dark:text-dark-primary font-label text-[11px] font-bold shadow-sm">
+            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+            #lanietacambia
+          </span>
+        </div>
+        <div class="absolute bottom-3 left-4 right-4 text-white">
+          <p class="font-label text-xs uppercase tracking-wider text-rose-200 dark:text-dark-tertiary font-semibold mb-0.5">Happy Bakes · Obrador Diario</p>
+          <h1 class="font-headline text-headline-lg-mobile text-white leading-tight font-bold drop-shadow">
+            Bocados de autor que enamoran
+          </h1>
+        </div>
+      </div>
+      <div class="p-3 bg-light-surface-container dark:bg-dark-surface-container flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-whatsapp text-xl">chat</span>
+          <span class="text-xs font-medium">Pedidos directos a WhatsApp en 1 click</span>
+        </div>
+        <button type="button" onclick="goToScreen(&#39;cart&#39;)" class="text-xs font-bold text-light-primary dark:text-dark-primary flex items-center gap-0.5 hover:underline cursor-pointer">
+          Ver carrito <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Buscador Integrado con Búsqueda Interactiva y Estado Vacío -->
+    <section>
+      <label class="relative flex items-center">
+        <span class="sr-only">Buscar especialidades</span>
+        <span class="material-symbols-outlined absolute left-3.5 text-light-outline dark:text-dark-outline text-xl pointer-events-none">search</span>
+        <input id="catalogSearchInput" type="search" oninput="handleSearch(this.value)" placeholder="Buscar cupcakes, tartas o cajas..." class="w-full pl-11 pr-10 py-3 rounded-full bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant/50 dark:border-dark-outline-variant text-sm focus:outline-none focus:ring-2 focus:ring-light-primary/30">
+        <button type="button" onclick="toggleLoadingStateDemo()" title="Simular carga de obrador" class="absolute right-3 text-light-on-surface-variant dark:text-dark-on-surface-variant hover:text-light-primary text-xs flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-light-surface dark:bg-dark-surface-container-high border border-light-outline-variant/50 cursor-pointer">
+          <span class="material-symbols-outlined text-sm">sync</span>
+          <span class="text-[10px] font-semibold">Cargar</span>
+        </button>
+      </label>
+    </section>
+
+    <!-- Estado Skeleton Loading Dinámico -->
+    <div id="catalogLoadingSkeleton" class="hidden grid grid-cols-2 gap-3.5 animate-pulse">
+      <div class="rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 p-3 space-y-2.5">
+        <div class="aspect-square rounded-lg bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        <div class="h-3.5 w-3/4 rounded bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        <div class="h-3 w-1/2 rounded bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        <div class="flex justify-between items-center pt-2">
+          <div class="h-4 w-12 rounded bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+          <div class="w-7 h-7 rounded-full bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        </div>
+      </div>
+      <div class="rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 p-3 space-y-2.5">
+        <div class="aspect-square rounded-lg bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        <div class="h-3.5 w-3/4 rounded bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        <div class="h-3 w-1/2 rounded bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        <div class="flex justify-between items-center pt-2">
+          <div class="h-4 w-12 rounded bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+          <div class="w-7 h-7 rounded-full bg-light-surface-container dark:bg-dark-surface-container-high"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estado Vacío: Sin Resultados de Búsqueda -->
+    <div id="searchEmptyState" class="hidden p-8 text-center rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-dashed border-light-outline-variant/60 dark:border-dark-outline-variant space-y-3">
+      <div class="w-12 h-12 rounded-full bg-light-primary-container dark:bg-dark-primary-container text-light-primary dark:text-dark-primary flex items-center justify-center mx-auto">
+        <span class="material-symbols-outlined text-2xl">search_off</span>
+      </div>
+      <div>
+        <h3 class="font-headline text-base font-bold">No encontramos ese dulce</h3>
+        <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-body max-w-xs mx-auto mt-1">
+          No tenemos resultados para <span id="searchedTermText" class="font-bold text-light-primary dark:text-dark-primary"></span>. ¿Deseas un encargo personalizado para obrador?
+        </p>
+      </div>
+      <div class="flex items-center justify-center gap-2 pt-1">
+        <button type="button" onclick="resetSearch()" class="px-3.5 py-1.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container text-xs font-bold border border-light-outline-variant cursor-pointer hover:bg-light-surface-container-high">
+          Limpiar búsqueda
+        </button>
+        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella,%20deseo%20consultar%20un%20sabor%20especial" target="_blank" class="px-3.5 py-1.5 rounded-full bg-whatsapp text-white text-xs font-bold flex items-center gap-1 shadow-sm">
+          <span class="material-symbols-outlined text-sm">chat</span>
+          Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Píldoras de Categorías con Filtro Interactivo -->
+    <section class="space-y-2">
+      <div class="flex items-center justify-between">
+        <h2 class="font-headline text-headline-md-mobile">Colecciones</h2>
+        <span class="text-xs font-medium text-light-outline dark:text-dark-outline">4 categorías</span>
+      </div>
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar -mx-4 px-4">
+        <button type="button" onclick="filterCategory(&#39;todos&#39;)" id="pillTodos" class="category-pill shrink-0 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary font-label text-xs font-semibold shadow-sm flex items-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-base">star</span>
+          Todos
+        </button>
+        <button type="button" onclick="filterCategory(&#39;cupcakes&#39;)" id="pillCupcakes" class="category-pill shrink-0 px-4 py-2 rounded-full bg-light-surface-container dark:bg-dark-surface-container text-light-on-surface dark:text-dark-on-surface font-label text-xs font-medium hover:bg-light-surface-container-high dark:hover:bg-dark-surface-container-high transition-colors flex items-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-base text-accent">cake</span>
+          Cupcakes de Autor
+        </button>
+        <button type="button" onclick="filterCategory(&#39;tartas&#39;)" id="pillTartas" class="category-pill shrink-0 px-4 py-2 rounded-full bg-light-surface-container dark:bg-dark-surface-container text-light-on-surface dark:text-dark-on-surface font-label text-xs font-medium hover:bg-light-surface-container-high dark:hover:bg-dark-surface-container-high transition-colors flex items-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-base text-accent">celebration</span>
+          Tartas para Eventos
+        </button>
+      </div>
+    </section>
+
+    <!-- Grid de Productos Interactivos -->
+    <section class="space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-headline text-headline-md-mobile">Nuestros Favoritos</h2>
+          <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-body">Toca cualquier delicia para personalizarla</p>
+        </div>
+        <span class="text-xs font-bold text-light-primary dark:text-dark-primary">Horneado hoy</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3.5" id="productsGrid">
+
+        <!-- Producto 1: Red Velvet (Abre Detalle) -->
+        <article class="product-item rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm flex flex-col justify-between group">
+          <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer relative aspect-square bg-light-surface-container dark:bg-dark-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBXcnSEaShDl7b_CMYVrcv3ameX-g_otH7Qq0fJ6FMfdgL9eaSoa06aqocuSpobTFnarRiVNq_sEtpfbek57XMejh2Z1nVotNwhiyxfhkL_q--9mckxYh_6wPA3qrRLl7pbHX7CPR28LzHfh2A4ySIWuhjRAsq907cnc1Q-KKvROJI67z5sg9fspyHIgOiR2tfV7q-VJDDAT_EF3DvZC1g_P9rrxoqywfiGEvCfUOV23muFU_iFHKvvvkSW6g" alt="Cupcake Red Velvet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-accent text-white font-label text-[10px] font-bold tracking-wide shadow-sm">
+              Favorito
+            </span>
+          </div>
+          <div class="p-3 flex flex-col flex-1 justify-between gap-2">
+            <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer">
+              <h3 class="font-title text-sm font-bold truncate group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors">
+                Red Velvet &amp; Vainilla
+              </h3>
+              <p class="text-[12px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-body line-clamp-1 mt-0.5">
+                Queso mascarpone &amp; frambuesa
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-1 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+              <span class="font-title text-sm font-bold text-light-primary dark:text-dark-primary tabular-nums">3,80 €</span>
+              <button type="button" onclick="addItemToCart(&#39;Red Velvet &amp; Vainilla&#39;, 3.80, &#39;../../images/cupcake_redvelvet.jpg&#39;)" class="w-8 h-8 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-base">add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 2: Pistacho & Rosa -->
+        <article class="product-item rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm flex flex-col justify-between group">
+          <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer relative aspect-square bg-light-surface-container dark:bg-dark-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAVe5WGtOSy3Jj2G391dwjNfApozI9ZfitpeY2vY9LxKhu5hm_WLZ4yC9MTMfGOuomesHbsnxAmuOUvIUCn1zatbC39oS11JeosFytN4BTRyD-zHkFRECejYliCTM22O0CfQI0qCdyBTfH8oraZYIc0H17Go3sOdCFNdxifGeqB756w5FBowIY9eqx39EaAXQhyuUs5fJdbgIz1sCyghPHBgr8VTMt-jJ8eBAo5VbmgsowRogG6eTrACrZQqUi6Kg" alt="Cupcake Pistacho y Rosa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-light-secondary dark:bg-dark-secondary-container text-white dark:text-dark-on-secondary-container font-label text-[10px] font-bold tracking-wide shadow-sm">
+              Gourmet
+            </span>
+          </div>
+          <div class="p-3 flex flex-col flex-1 justify-between gap-2">
+            <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer">
+              <h3 class="font-title text-sm font-bold truncate group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors">
+                Pistacho &amp; Rosa Silvestre
+              </h3>
+              <p class="text-[12px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-body line-clamp-1 mt-0.5">
+                Crema de pistacho de Bronte
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-1 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+              <span class="font-title text-sm font-bold text-light-primary dark:text-dark-primary tabular-nums">4,20 €</span>
+              <button type="button" onclick="addItemToCart(&#39;Pistacho &amp; Rosa Silvestre&#39;, 4.20, &#39;../../images/cupcake_pistacho_rosa.jpg&#39;)" class="w-8 h-8 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-base">add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 3: Chocolate Trufado -->
+        <article class="product-item rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm flex flex-col justify-between group">
+          <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer relative aspect-square bg-light-surface-container dark:bg-dark-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB5eeK9DwPJoIwgi3Gn7Wcr4QiSjmKg5Jie-VLdQKBDm9D7eK_tD1nX9E6eLXc56gdc4jxxwTxHks6Hq0-153aLPaNF9-IjaPr5QxLRzAot26Y5KphTaP5pIgCX7miwyOb9-bU6dmGHqkm_RWESpb8dCfO2z8e1-Yfpcf9-aOzZZV76vcHUNutn1z6qj9UT14qNmexo--ULT5P-1M0IL69KSwdIow7CkSsh95i1A3Q1cRHnk92xDbebg8NyHa5Fjl7llA" alt="Chocolate Trufado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-3 flex flex-col flex-1 justify-between gap-2">
+            <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer">
+              <h3 class="font-title text-sm font-bold truncate group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors">
+                Chocolate Trufado 70%
+              </h3>
+              <p class="text-[12px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-body line-clamp-1 mt-0.5">
+                Ganache belga y oro comestible
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-1 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+              <span class="font-title text-sm font-bold text-light-primary dark:text-dark-primary tabular-nums">3,90 €</span>
+              <button type="button" onclick="addItemToCart(&#39;Chocolate Trufado 70%&#39;, 3.90, &#39;../../images/cupcake_chocolate_trufa.jpg&#39;)" class="w-8 h-8 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-base">add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 4: Tarta Celebración -->
+        <article class="product-item rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant/60 overflow-hidden shadow-sm flex flex-col justify-between group">
+          <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer relative aspect-square bg-light-surface-container dark:bg-dark-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDfxsOFc5pZffDVz2bO2VWPWE3WfNenLaSFICVV1sgcNMf-Fm8S-7bgRBouavpFwNXzcQkp828gfHhCxKsL65JJHEJgtpw8qGISUkK74Fvlb0SNoGJJfUmBDXPmcMAPvI_omLR-IfAgd6uH6H5tIj1BNyQwBAqeMAP1qudxUHSokJ0Vb_-YCYEurUNSRTFOQKNs0yLJ77ZbctWyIUztvRngZSb74uD6UB7o3SMxNSwK5G88lrR0AsN5Eg" alt="Tarta de Celebración" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-light-tertiary dark:bg-dark-tertiary-container text-white dark:text-dark-on-tertiary-container font-label text-[10px] font-bold tracking-wide shadow-sm">
+              Encargo
+            </span>
+          </div>
+          <div class="p-3 flex flex-col flex-1 justify-between gap-2">
+            <div onclick="goToScreen(&#39;detail&#39;)" class="cursor-pointer">
+              <h3 class="font-title text-sm font-bold truncate group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors">
+                Tarta Flores &amp; Higo
+              </h3>
+              <p class="text-[12px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-body line-clamp-1 mt-0.5">
+                8-10 porciones · Personalizable
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-1 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/40">
+              <span class="font-title text-sm font-bold text-light-primary dark:text-dark-primary tabular-nums">28,00 €</span>
+              <button type="button" onclick="addItemToCart(&#39;Tarta Flores &amp; Higo&#39;, 28.00, &#39;../../images/tarta_artesanal.jpg&#39;)" class="w-8 h-8 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-base">add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Banner Encargo Especial -->
+    <section class="p-4 rounded-2xl bg-gradient-to-br from-light-primary-container/70 dark:from-dark-surface-container-high to-light-surface-container dark:to-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant flex items-center justify-between gap-3 shadow-sm">
+      <div class="space-y-1">
+        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-light-primary dark:text-dark-primary uppercase tracking-wide">
+          <span class="material-symbols-outlined text-sm">palette</span>
+          Diseños a Medida
+        </span>
+        <h3 class="font-headline text-base font-bold">¿Tienes un evento especial?</h3>
+        <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-body">Mesas dulces personalizadas con tu paleta preferida.</p>
+      </div>
+      <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella,%20deseo%20consultar%20por%20una%20tarta%20personalizada" target="_blank" class="shrink-0 w-11 h-11 rounded-full bg-whatsapp text-white flex items-center justify-center shadow-md hover:bg-whatsapp-hover transition-colors">
+        <span class="material-symbols-outlined text-2xl">chat</span>
+      </a>
+    </section>
+
+  </div>
+
+  <!-- ========================================== -->
+  <!-- VISTA 2: DETALLE & PERSONALIZACIÓN        -->
+  <!-- ========================================== -->
+  <div id="viewDetail" class="hidden pb-32">
+    <!-- Header sangrado con botón volver a catálogo -->
+    <div class="relative w-full h-72 bg-light-surface-container dark:bg-dark-surface-container overflow-hidden">
+      <img src="https://lh3.googleusercontent.com/aida/ALJJyrBXcnSEaShDl7b_CMYVrcv3ameX-g_otH7Qq0fJ6FMfdgL9eaSoa06aqocuSpobTFnarRiVNq_sEtpfbek57XMejh2Z1nVotNwhiyxfhkL_q--9mckxYh_6wPA3qrRLl7pbHX7CPR28LzHfh2A4ySIWuhjRAsq907cnc1Q-KKvROJI67z5sg9fspyHIgOiR2tfV7q-VJDDAT_EF3DvZC1g_P9rrxoqywfiGEvCfUOV23muFU_iFHKvvvkSW6g" alt="Cupcake Red Velvet" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+
+      <div class="absolute top-0 left-0 right-0 p-4 flex items-center justify-between z-10">
+        <button type="button" onclick="goToScreen(&#39;home&#39;)" aria-label="Volver" class="w-10 h-10 rounded-full bg-white/80 dark:bg-dark-surface-container-high/90 backdrop-blur-md flex items-center justify-center shadow-sm cursor-pointer">
+          <span class="material-symbols-outlined text-xl">arrow_back</span>
+        </button>
+        <div class="flex items-center gap-2">
+          <button type="button" class="w-10 h-10 rounded-full bg-white/80 dark:bg-dark-surface-container-high/90 backdrop-blur-md text-light-primary dark:text-dark-primary flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-xl" style="font-variation-settings: &#39;FILL&#39; 1;">favorite</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="absolute bottom-4 left-4 right-4 text-white">
+        <span class="px-2.5 py-1 rounded-full bg-accent text-white font-label text-[11px] font-bold tracking-wide uppercase shadow-sm">
+          #lanietacambia · Selección Artesana
+        </span>
+        <h2 class="font-headline text-headline-lg-mobile font-bold text-white mt-1 drop-shadow">
+          Red Velvet &amp; Vainilla Bourbon
+        </h2>
+      </div>
+    </div>
+
+    <!-- Contenido y Opciones -->
+    <div class="px-4 pt-4 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-light-outline-variant/40 dark:border-dark-outline-variant/60">
+        <div>
+          <div class="flex items-baseline gap-2">
+            <span class="font-headline text-2xl font-bold text-light-primary dark:text-dark-primary tabular-nums">3,80 €</span>
+            <span class="text-xs text-light-outline dark:text-dark-outline line-through tabular-nums">4,20 €</span>
+          </div>
+          <p class="text-[12px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">Unidad individual en caja protectora</p>
+        </div>
+        <div class="flex items-center gap-1 bg-light-primary-container dark:bg-dark-primary-container px-2.5 py-1 rounded-full text-light-on-primary-container dark:text-dark-on-primary-container">
+          <span class="material-symbols-outlined text-sm text-accent" style="font-variation-settings: &#39;FILL&#39; 1;">star</span>
+          <span class="text-xs font-bold font-title">4.9</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">(128)</span>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <h3 class="font-headline text-base font-bold">El Secreto de la Receta</h3>
+        <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant leading-relaxed font-body">
+          Bizcocho aterciopelado con cacao puro holandés. Frosting montado con queso mascarpone, reducción de frambuesas silvestres y vainilla en vaina Bourbon.
+        </p>
+      </div>
+
+      <!-- Selección interactiva de Frosting -->
+      <div class="space-y-2.5">
+        <h4 class="font-headline text-sm font-bold">Elige tu acabado especial</h4>
+        <div class="grid grid-cols-2 gap-2.5">
+          <label class="p-3 rounded-xl border-2 border-light-primary dark:border-dark-primary bg-light-primary-container/20 dark:bg-dark-primary-container/30 flex flex-col gap-1 cursor-pointer">
+            <input type="radio" name="frosting_choice" value="Mascarpone" checked class="sr-only">
+            <span class="font-title text-xs font-bold">Frosting Mascarpone</span>
+            <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Clásico sedoso</span>
+          </label>
+          <label class="p-3 rounded-xl border border-light-outline-variant/60 dark:border-dark-outline-variant bg-light-surface-container-low dark:bg-dark-surface-container-low flex flex-col gap-1 cursor-pointer">
+            <input type="radio" name="frosting_choice" value="Chantilly" class="sr-only">
+            <span class="font-title text-xs font-bold">Crema Chantilly</span>
+            <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Toque ligero</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Campo de dedicatoria -->
+      <div class="space-y-1.5">
+        <label class="font-label text-xs font-semibold flex items-center justify-between">
+          <span>Dedicatoria en la tarjeta de regalo</span>
+          <span class="text-[10px] text-whatsapp font-bold">Gratis</span>
+        </label>
+        <input type="text" id="detailDedicatoriaInput" placeholder="Escribe el mensaje para la tarjeta..." value="¡Felicidades por tu nuevo hogar! Disfruta estos dulces." class="w-full px-3.5 py-2.5 rounded-lg bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/70 dark:border-dark-outline-variant text-xs focus:ring-2 focus:ring-light-primary/30">
+      </div>
+    </div>
+
+    <!-- Barra de compra fija en detalle -->
+    <div class="fixed bottom-14 left-0 right-0 z-40 max-w-[390px] mx-auto px-4 pb-2 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md pt-2 border-t border-light-outline-variant/30 dark:border-dark-outline-variant/60">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 bg-light-surface-container dark:bg-dark-surface-container rounded-full px-3 py-2 border border-light-outline-variant/50 dark:border-dark-outline-variant shrink-0">
+          <button type="button" onclick="adjustDetailQty(-1)" class="w-7 h-7 rounded-full bg-light-surface dark:bg-dark-surface-container-high flex items-center justify-center cursor-pointer">
+            <span class="material-symbols-outlined text-base">remove</span>
+          </button>
+          <span id="detailQty" class="font-title text-sm font-bold px-1 tabular-nums">2</span>
+          <button type="button" onclick="adjustDetailQty(1)" class="w-7 h-7 rounded-full bg-light-surface dark:bg-dark-surface-container-high flex items-center justify-center cursor-pointer">
+            <span class="material-symbols-outlined text-base">add</span>
+          </button>
+        </div>
+
+        <button type="button" onclick="addFromDetailAndGoCart()" class="flex-1 py-3 px-4 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary font-label font-bold text-sm shadow-md flex items-center justify-between cursor-pointer active:scale-95 transition-all">
+          <span class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">shopping_bag</span>
+            Añadir (<span id="detailPriceTotal">7,60 €</span>)
+          </span>
+          <span class="text-xs bg-black/15 px-2 py-0.5 rounded-full font-semibold">Ir al carrito →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- VISTA 3: CARRITO & RESUMEN WHATSAPP       -->
+  <!-- ========================================== -->
+  <div id="viewCart" class="hidden pb-32 px-4 pt-3 space-y-5">
+
+    <!-- Header Contextual del Carrito -->
+    <div class="flex items-center justify-between pb-2 border-b border-light-outline-variant/40 dark:border-dark-outline-variant/60">
+      <div class="flex items-center gap-2.5">
+        <button type="button" onclick="goToScreen(&#39;home&#39;)" class="w-8 h-8 rounded-full bg-light-surface-container dark:bg-dark-surface-container flex items-center justify-center cursor-pointer">
+          <span class="material-symbols-outlined text-lg">arrow_back</span>
+        </button>
+        <div>
+          <h2 class="font-headline text-headline-md-mobile font-bold">Mi Carrito Dulce</h2>
+          <p id="cartItemsSubtitle" class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">3 delicias preparadas</p>
+        </div>
+      </div>
+      <span class="px-2.5 py-1 rounded-full bg-light-primary-container dark:bg-dark-primary-container text-light-on-primary-container dark:text-dark-on-primary-container font-label text-xs font-semibold">
+        Paso final
+      </span>
+    </div>
+
+    <!-- Banner WhatsApp -->
+    <div class="p-3.5 rounded-xl bg-whatsapp/15 border border-whatsapp/30 flex items-start gap-3">
+      <div class="w-8 h-8 rounded-full bg-whatsapp text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+        <span class="material-symbols-outlined text-lg">chat</span>
+      </div>
+      <div>
+        <h3 class="font-title text-sm font-bold">Pedido asistido por WhatsApp</h3>
+        <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant mt-0.5 leading-relaxed font-body">
+          Al pulsar el botón final, se abrirá el chat con el obrador con el pedido desglosado para formalizar entrega y pago por Bizum.
+        </p>
+      </div>
+    </div>
+
+    <!-- Lista Dinámica de Artículos en el Carrito -->
+    <section class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="font-headline text-sm font-bold">Artículos en tu cesta</h3>
+        <button type="button" onclick="clearCart()" class="text-xs text-light-outline dark:text-dark-outline hover:text-light-primary cursor-pointer">Vaciar</button>
+      </div>
+
+      <div id="cartItemsContainer" class="space-y-2.5">
+        <!-- Renderizado dinámico desde JavaScript -->
+      </div>
+    </section>
+
+    <!-- Detalles de Entrega -->
+    <section class="space-y-3 pt-1">
+      <h3 class="font-headline text-sm font-bold">Detalles de Entrega</h3>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <label class="p-3 rounded-xl border-2 border-light-primary dark:border-dark-primary bg-light-primary-container/20 dark:bg-dark-primary-container/30 flex flex-col cursor-pointer">
+          <input type="radio" name="delivery_choice" checked class="sr-only">
+          <div class="flex justify-between items-center mb-1">
+            <span class="material-symbols-outlined text-light-primary dark:text-dark-primary text-xl">delivery_dining</span>
+            <span class="w-2 h-2 rounded-full bg-light-primary dark:bg-dark-primary"></span>
+          </div>
+          <span class="font-title text-xs font-bold">Entrega a domicilio</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">2,50 €</span>
+        </label>
+
+        <label class="p-3 rounded-xl border border-light-outline-variant/60 dark:border-dark-outline-variant bg-light-surface-container-low dark:bg-dark-surface-container-low flex flex-col cursor-pointer">
+          <input type="radio" name="delivery_choice" class="sr-only">
+          <div class="flex justify-between items-center mb-1">
+            <span class="material-symbols-outlined text-light-outline text-xl">store</span>
+          </div>
+          <span class="font-title text-xs font-bold">Recoger en obrador</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Gratis</span>
+        </label>
+      </div>
+
+      <!-- Dirección y Dedicatoria -->
+      <label class="flex flex-col gap-1">
+        <span class="font-label text-xs font-semibold">Tu nombre y dirección</span>
+        <input type="text" id="checkoutAddress" value="Claudia Ramos · Av. Delicias 42, 3ºB" class="w-full px-3.5 py-2.5 rounded-lg bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/70 dark:border-dark-outline-variant text-xs">
+      </label>
+
+      <label class="flex flex-col gap-1">
+        <span class="font-label text-xs font-semibold flex items-center justify-between">
+          <span>Dedicatoria en la tarjeta caligrafiada</span>
+          <span class="text-[10px] text-whatsapp font-bold">Gratis</span>
+        </span>
+        <input type="text" id="checkoutCardMsg" value="¡Felicidades por tu nuevo hogar! Disfruta estos dulces." class="w-full px-3.5 py-2.5 rounded-lg bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/70 dark:border-dark-outline-variant text-xs">
+      </label>
+    </section>
+
+    <!-- Resumen de Costes -->
+    <section class="p-4 rounded-xl bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant/40 dark:border-dark-outline-variant space-y-2">
+      <div class="flex justify-between text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant">
+        <span>Subtotal productos</span>
+        <span id="cartSubtotal" class="font-medium tabular-nums">11,80 €</span>
+      </div>
+      <div class="flex justify-between text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant">
+        <span>Envío obrador directo</span>
+        <span class="font-medium tabular-nums">2,50 €</span>
+      </div>
+      <div class="pt-2 border-t border-light-outline-variant/50 dark:border-dark-outline-variant/60 flex justify-between items-baseline font-bold">
+        <span class="font-headline text-sm">Total Estimado</span>
+        <span id="cartTotalSummary" class="font-headline text-lg text-light-primary dark:text-dark-primary tabular-nums">14,30 €</span>
+      </div>
+    </section>
+
+    <!-- Botón Sticky para Formalizar y pasar a Confirmación -->
+    <div class="fixed bottom-14 left-0 right-0 z-40 max-w-[390px] mx-auto px-4 pb-2">
+      <button type="button" onclick="confirmAndSendWhatsApp()" class="w-full py-3.5 px-5 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-label font-bold text-sm shadow-xl flex items-center justify-between active:scale-[0.98] transition-all cursor-pointer ring-4 ring-whatsapp/20">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-2xl">chat</span>
+          <span>Pedir y Enviar por WhatsApp</span>
+        </div>
+        <span id="cartButtonTotal" class="bg-black/20 px-3 py-1 rounded-full text-xs font-bold tabular-nums">
+          14,30 € →
+        </span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ========================================== -->
+  <!-- VISTA 4: COMPROBANTE & SEGUIMIENTO         -->
+  <!-- ========================================== -->
+  <div id="viewConfirmation" class="hidden pb-24 px-4 pt-3 space-y-5">
+
+    <!-- Header Comprobante -->
+    <div class="flex items-center justify-between pb-2 border-b border-light-outline-variant/40 dark:border-dark-outline-variant/60">
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="goToScreen(&#39;home&#39;)" class="w-8 h-8 rounded-full bg-light-surface-container dark:bg-dark-surface-container flex items-center justify-center cursor-pointer">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+        <div>
+          <h2 class="font-headline text-headline-md-mobile font-bold">Comprobante de Pedido</h2>
+          <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant font-medium">Pedido #LNP-8492</p>
+        </div>
+      </div>
+      <span class="px-2.5 py-1 rounded-full bg-whatsapp/20 text-whatsapp font-label text-xs font-bold flex items-center gap-1 border border-whatsapp/40">
+        <span class="w-2 h-2 rounded-full bg-whatsapp animate-ping"></span>
+        En Obrador
+      </span>
+    </div>
+
+    <!-- Éxito -->
+    <section class="p-4 rounded-2xl bg-gradient-to-b from-light-primary-container/30 dark:from-dark-surface-container-high to-light-surface-container-low dark:to-dark-surface-container-low border border-light-outline-variant/50 dark:border-dark-outline-variant text-center space-y-3 shadow-sm">
+      <div class="w-14 h-14 rounded-full bg-whatsapp text-white flex items-center justify-center mx-auto shadow-md ring-4 ring-whatsapp/20">
+        <span class="material-symbols-outlined text-3xl">check</span>
+      </div>
+      <div>
+        <span class="px-2.5 py-0.5 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary font-label text-[11px] font-bold uppercase tracking-wider">
+          ¡Pedido Recibido con Éxito!
+        </span>
+        <h3 class="font-headline text-lg font-bold mt-1.5">
+          Estamos horneando tu momento
+        </h3>
+        <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-body max-w-xs mx-auto mt-1 leading-relaxed">
+          Los detalles han sido organizados para el chat oficial de WhatsApp. Te responderemos en unos minutos para coordinar la hora exacta de entrega.
+        </p>
+      </div>
+
+      <div class="pt-2">
+        <a id="confirmWhatsAppLink" href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20%E2%9C%A8%20Deseo%20confirmar%20mi%20pedido%20%23LNP-8492" target="_blank" class="w-full py-3 px-4 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-label font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <span class="material-symbols-outlined text-lg">chat</span>
+          Abrir Chat en WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Estado y Línea de Tiempo -->
+    <section class="p-4 rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant space-y-3">
+      <h3 class="font-headline text-sm font-bold flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent text-lg">timer</span>
+        Seguimiento en Vivo
+      </h3>
+
+      <div class="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-light-outline-variant/60 dark:before:bg-dark-outline-variant/60">
+        <div class="relative">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-whatsapp text-white flex items-center justify-center text-[10px]">✓</span>
+          <span class="font-title text-xs font-bold block">Pedido Registrado y Enviado</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Hoy a las 15:40 h · WhatsApp</span>
+        </div>
+        <div class="relative">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-light-primary dark:bg-dark-primary text-white flex items-center justify-center text-[10px] ring-4 ring-light-primary/20 dark:ring-dark-primary/30">●</span>
+          <span class="font-title text-xs font-bold text-light-primary dark:text-dark-primary block">Elaboración en Obrador</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Bizcocho artesanal y crema montada fresca</span>
+        </div>
+        <div class="relative opacity-60">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-light-surface-container-high dark:bg-dark-surface-container-high border-2 border-light-outline dark:border-dark-outline"></span>
+          <span class="font-title text-xs font-semibold block">Empaquetado para Regalo</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Caja con lazo y dedicatoria caligrafiada</span>
+        </div>
+        <div class="relative opacity-60">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-light-surface-container-high dark:bg-dark-surface-container-high border-2 border-light-outline dark:border-dark-outline"></span>
+          <span class="font-title text-xs font-semibold block">En Camino</span>
+          <span class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant">Entrega estimada: Hoy 17:00 - 18:30 h</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket Recibo Resumido -->
+    <section class="p-4 rounded-2xl bg-white dark:bg-dark-surface-container border border-light-outline-variant/60 dark:border-dark-outline-variant space-y-3 shadow-sm">
+      <div class="flex items-center justify-between border-b border-light-outline-variant/30 dark:border-dark-outline-variant/60 pb-2">
+        <span class="font-display font-bold text-sm text-light-primary dark:text-dark-primary">LA NIETA DE PORTELLA</span>
+        <span class="font-mono text-xs text-light-outline dark:text-dark-outline">TICKET #LNP-8492</span>
+      </div>
+      <div id="confirmationItemsReceipt" class="space-y-1.5 text-xs">
+        <!-- Rellenado dinámicamente -->
+      </div>
+    </section>
+
+    <!-- Botón Volver al Obrador -->
+    <div class="pt-2 pb-6">
+      <button type="button" onclick="goToScreen(&#39;home&#39;)" class="w-full py-3.5 rounded-full bg-light-surface-container dark:bg-dark-surface-container hover:bg-light-surface-container-high text-xs font-bold border border-light-outline-variant dark:border-dark-outline-variant cursor-pointer transition-colors">
+        Volver a la Tienda / Obrador
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ========================================== -->
+  <!-- BOTTOM NAVIGATION PERSISTENTE             -->
+  <!-- ========================================== -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-light-surface/95 dark:bg-dark-surface/95 backdrop-blur-md border-t border-light-outline-variant/50 dark:border-dark-outline-variant max-w-[390px] mx-auto px-4 py-2 flex items-center justify-around shadow-2xl">
+    <!-- Tab Obrador -->
+    <button type="button" id="tabBtnHome" onclick="goToScreen(&#39;home&#39;)" class="flex flex-col items-center gap-1 py-1 text-light-primary dark:text-dark-primary cursor-pointer transition-colors">
+      <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: &#39;FILL&#39; 1;">storefront</span>
+      <span class="font-label text-[11px] font-bold">Obrador</span>
+    </button>
+
+    <!-- Tab Dulces / Detalle -->
+    <button type="button" id="tabBtnDetail" onclick="goToScreen(&#39;detail&#39;)" class="flex flex-col items-center gap-1 py-1 text-light-on-surface-variant dark:text-dark-on-surface-variant hover:text-light-primary cursor-pointer transition-colors">
+      <span class="material-symbols-outlined text-[24px]">category</span>
+      <span class="font-label text-[11px] font-medium">Dulces</span>
+    </button>
+
+    <!-- Tab Carrito con Contador Dinámico -->
+    <button type="button" id="tabBtnCart" onclick="goToScreen(&#39;cart&#39;)" class="relative flex flex-col items-center gap-1 py-1 text-light-on-surface-variant dark:text-dark-on-surface-variant hover:text-light-primary cursor-pointer transition-colors">
+      <div class="relative">
+        <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+        <span id="navCartBadge" class="absolute -top-1 -right-2 min-w-[17px] h-[17px] px-1 rounded-full bg-accent text-white font-label text-[10px] font-bold flex items-center justify-center">
+          3
+        </span>
+      </div>
+      <span class="font-label text-[11px] font-medium">Carrito</span>
+    </button>
+
+    <!-- Tab WhatsApp -->
+    <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella,%20quiero%20hacer%20un%20pedido" target="_blank" class="flex flex-col items-center gap-1 py-1 text-whatsapp hover:text-whatsapp-hover transition-colors">
+      <span class="material-symbols-outlined text-[24px]">chat</span>
+      <span class="font-label text-[11px] font-medium">WhatsApp</span>
+    </a>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- LÓGICA INTERACTIVA DEL PROTOTIPO          -->
+  <!-- ========================================== -->
+  <script>
+    // Estado del prototipo
+    const state = {
+      theme: 'light',
+      currentScreen: 'home',
+      detailQty: 2,
+      cart: [
+        { name: 'Red Velvet & Vainilla', price: 3.80, qty: 2, img: '../../images/cupcake_redvelvet.jpg', note: 'Glaseado mascarpone' },
+        { name: 'Pistacho & Rosa Silvestre', price: 4.20, qty: 1, img: '../../images/cupcake_pistacho_rosa.jpg', note: 'Caja regalo' }
+      ]
+    };
+
+    // Navegación animada entre vistas
+    function goToScreen(screenName) {
+      state.currentScreen = screenName;
+      const views = ['viewHome', 'viewDetail', 'viewCart', 'viewConfirmation'];
+      views.forEach(v => {
+        const el = document.getElementById(v);
+        el.classList.add('hidden');
+        el.classList.remove('screen-animated-in');
+      });
+
+      // Reseteo estilo tabs
+      const tabs = ['tabBtnHome', 'tabBtnDetail', 'tabBtnCart'];
+      tabs.forEach(t => {
+        const el = document.getElementById(t);
+        if (el) {
+          el.className = 'flex flex-col items-center gap-1 py-1 text-light-on-surface-variant dark:text-dark-on-surface-variant hover:text-light-primary cursor-pointer transition-colors';
+        }
+      });
+
+      const activeClass = 'flex flex-col items-center gap-1 py-1 text-light-primary dark:text-dark-primary font-bold cursor-pointer transition-colors';
+      const labelEl = document.getElementById('currentScreenLabel');
+
+      let targetViewId = 'viewHome';
+      if (screenName === 'home') {
+        targetViewId = 'viewHome';
+        document.getElementById('tabBtnHome').className = activeClass;
+        labelEl.textContent = 'Catálogo · Obrador';
+      } else if (screenName === 'detail') {
+        targetViewId = 'viewDetail';
+        document.getElementById('tabBtnDetail').className = activeClass;
+        labelEl.textContent = 'Detalle de Producto';
+        updateDetailTotal();
+      } else if (screenName === 'cart') {
+        targetViewId = 'viewCart';
+        document.getElementById('tabBtnCart').className = activeClass;
+        labelEl.textContent = 'Carrito & WhatsApp';
+        renderCart();
+      } else if (screenName === 'confirmation') {
+        targetViewId = 'viewConfirmation';
+        labelEl.textContent = 'Comprobante #LNP-8492';
+        renderConfirmationReceipt();
+        triggerConfettiCelebration();
+      }
+
+      const activeView = document.getElementById(targetViewId);
+      activeView.classList.remove('hidden');
+      // Forzar reflow para reiniciar la animación
+      void activeView.offsetWidth;
+      activeView.classList.add('screen-animated-in');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Efecto de notificación Toast flotante
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const text = document.getElementById('toastMessage');
+      if (toast && text) {
+        text.textContent = message;
+        toast.classList.remove('hidden');
+        toast.classList.add('flex');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+          toast.classList.remove('flex');
+        }, 2200);
+      }
+    }
+
+    // Efecto de Confeti Dinámico al confirmar el pedido
+    function triggerConfettiCelebration() {
+      const container = document.getElementById('confettiContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      container.classList.remove('hidden');
+
+      const colors = ['#E2492D', '#25D366', '#FFB4A5', '#FFDBCF', '#D4AF37'];
+      for (let i = 0; i < 28; i++) {
+        const piece = document.createElement('div');
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const left = Math.random() * 100;
+        const delay = Math.random() * 0.4;
+        const duration = 1.2 + Math.random() * 0.8;
+        const size = 6 + Math.random() * 6;
+
+        piece.style.position = 'absolute';
+        piece.style.top = '10%';
+        piece.style.left = left + '%';
+        piece.style.width = size + 'px';
+        piece.style.height = size + 'px';
+        piece.style.backgroundColor = color;
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        piece.style.animation = `confettiFall ${duration}s ease-out ${delay}s forwards`;
+        container.appendChild(piece);
+      }
+
+      setTimeout(() => {
+        container.classList.add('hidden');
+        container.innerHTML = '';
+      }, 2600);
+    }
+
+    // Toggle de tema claro y oscuro
+    function toggleAppTheme() {
+      const html = document.getElementById('appHtml');
+      const isDark = html.classList.toggle('dark');
+      state.theme = isDark ? 'dark' : 'light';
+      document.getElementById('themeBtnIcon').textContent = isDark ? 'light_mode' : 'dark_mode';
+      document.getElementById('themeBtnText').textContent = isDark ? 'Claro' : 'Oscuro';
+    }
+
+    // Cantidad en Detalle
+    function adjustDetailQty(delta) {
+      state.detailQty = Math.max(1, state.detailQty + delta);
+      document.getElementById('detailQty').textContent = state.detailQty;
+      updateDetailTotal();
+    }
+
+    function updateDetailTotal() {
+      const total = (3.80 * state.detailQty).toFixed(2).replace('.', ',');
+      document.getElementById('detailPriceTotal').textContent = total + ' €';
+    }
+
+    function addFromDetailAndGoCart() {
+      const existing = state.cart.find(item => item.name === 'Red Velvet & Vainilla');
+      if (existing) {
+        existing.qty = state.detailQty;
+      } else {
+        state.cart.push({
+          name: 'Red Velvet & Vainilla',
+          price: 3.80,
+          qty: state.detailQty,
+          img: '../../images/cupcake_redvelvet.jpg',
+          note: 'Frosting mascarpone'
+        });
+      }
+      updateCartBadge();
+      showToast('¡Red Velvet & Vainilla personalizado añadido!');
+      goToScreen('cart');
+    }
+
+    // Añadir rápido desde catálogo con feedback sensorial
+    function addItemToCart(name, price, img) {
+      const item = state.cart.find(i => i.name === name);
+      if (item) {
+        item.qty += 1;
+      } else {
+        state.cart.push({ name, price, qty: 1, img, note: 'Selección obrador' });
+      }
+      updateCartBadge();
+      showToast(`+1 ${name} añadido a tu cesta`);
+      
+      // Animación en el botón del carrito
+      const badge = document.getElementById('navCartBadge');
+      if (badge) {
+        badge.classList.remove('badge-pop');
+        void badge.offsetWidth;
+        badge.classList.add('badge-pop');
+      }
+    }
+
+    // Modificar cantidad en carrito
+    function modifyCartQty(index, delta) {
+      state.cart[index].qty += delta;
+      if (state.cart[index].qty <= 0) {
+        const removedName = state.cart[index].name;
+        state.cart.splice(index, 1);
+        showToast(`Eliminado: ${removedName}`);
+      }
+      renderCart();
+      updateCartBadge();
+    }
+
+    function clearCart() {
+      state.cart = [];
+      renderCart();
+      updateCartBadge();
+    }
+
+    function updateCartBadge() {
+      const totalCount = state.cart.reduce((sum, item) => sum + item.qty, 0);
+      const badge = document.getElementById('navCartBadge');
+      if (badge) {
+        badge.textContent = totalCount;
+        badge.style.display = totalCount > 0 ? 'flex' : 'none';
+      }
+      const subtitle = document.getElementById('cartItemsSubtitle');
+      if (subtitle) {
+        subtitle.textContent = totalCount + (totalCount === 1 ? ' delicia preparada' : ' delicias preparadas');
+      }
+    }
+
+    // Renderizar carrito
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      container.innerHTML = '';
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `
+          <div class="p-6 text-center rounded-2xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-dashed border-light-outline-variant/60 dark:border-dark-outline-variant space-y-3 item-pop-in">
+            <div class="w-14 h-14 rounded-full bg-light-surface-container dark:bg-dark-surface-container flex items-center justify-center mx-auto text-light-outline dark:text-dark-outline">
+              <span class="material-symbols-outlined text-3xl">shopping_basket</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-base font-bold">Tu cesta está vacía</h4>
+              <p class="text-xs text-light-on-surface-variant dark:text-dark-on-surface-variant font-body max-w-xs mx-auto mt-0.5">
+                Añade cupcakes artesanales recién horneados para solicitar tu pedido por WhatsApp.
+              </p>
+            </div>
+            <div class="pt-2 flex flex-col gap-2 max-w-xs mx-auto">
+              <button
+                type="button"
+                onclick="restoreSampleCart()"
+                class="w-full py-2.5 rounded-full bg-light-primary dark:bg-dark-primary text-white text-xs font-bold cursor-pointer hover:opacity-95 shadow-sm"
+              >
+                + Añadir Selección Sugerida (2 delicias)
+              </button>
+              <button
+                type="button"
+                onclick="goToScreen('home')"
+                class="w-full py-2.5 rounded-full bg-light-surface dark:bg-dark-surface-container-high border border-light-outline-variant/60 text-xs font-semibold cursor-pointer hover:bg-light-surface-container"
+              >
+                Explorar el Obrador
+              </button>
+            </div>
+          </div>
+        `;
+        document.getElementById('cartSubtotal').textContent = '0,00 €';
+        document.getElementById('cartTotalSummary').textContent = '0,00 €';
+        document.getElementById('cartButtonTotal').textContent = '0,00 € →';
+        return;
+      }
+
+      let subtotal = 0;
+
+      state.cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+
+        const row = document.createElement('article');
+        row.className = 'p-3 rounded-xl bg-light-surface-container-low dark:bg-dark-surface-container-low border border-light-outline-variant/40 dark:border-dark-outline-variant/60 flex items-center gap-3 shadow-sm';
+        row.innerHTML = `
+          <div class="w-14 h-14 rounded-lg bg-light-surface-container dark:bg-dark-surface-container overflow-hidden shrink-0">
+            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-1 min-w-0">
+            <h4 class="font-title text-xs font-bold truncate">${item.name}</h4>
+            <p class="text-[11px] text-light-on-surface-variant dark:text-dark-on-surface-variant truncate">${item.note}</p>
+            <span class="font-title text-xs font-bold text-light-primary dark:text-dark-primary tabular-nums">${itemTotal.toFixed(2).replace('.', ',')} €</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-light-surface dark:bg-dark-surface-container rounded-full px-2 py-1 border border-light-outline-variant/50 dark:border-dark-outline-variant">
+            <button type="button" onclick="modifyCartQty(${idx}, -1)" class="w-5 h-5 flex items-center justify-center text-xs cursor-pointer">
+              <span class="material-symbols-outlined text-sm">remove</span>
+            </button>
+            <span class="font-title text-xs font-bold px-1 tabular-nums">${item.qty}</span>
+            <button type="button" onclick="modifyCartQty(${idx}, 1)" class="w-5 h-5 flex items-center justify-center text-xs cursor-pointer">
+              <span class="material-symbols-outlined text-sm">add</span>
+            </button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      const total = subtotal + 2.50; // Incluye envío
+      document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('cartTotalSummary').textContent = total.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('cartButtonTotal').textContent = total.toFixed(2).replace('.', ',') + ' € →';
+    }
+
+    // Confirmar y generar enlace WhatsApp dinámico
+    function confirmAndSendWhatsApp() {
+      const address = document.getElementById('checkoutAddress').value;
+      const cardMsg = document.getElementById('checkoutCardMsg').value;
+      const totalStr = document.getElementById('cartTotalSummary').textContent;
+
+      let msg = `Hola La Nieta de Portella ✨ Quisiera confirmar mi encargo:%0A`;
+      state.cart.forEach(i => {
+        msg += `- ${i.qty}x ${i.name} (${(i.price * i.qty).toFixed(2)}€)%0A`;
+      });
+      msg += `Total c/envío: ${totalStr}%0A`;
+      msg += `Dirección: ${address}%0A`;
+      msg += `Tarjeta: "${cardMsg}"`;
+
+      document.getElementById('confirmWhatsAppLink').href = `https://wa.me/?text=${msg}`;
+
+      goToScreen('confirmation');
+    }
+
+    // Renderizar recibo en pantalla de confirmación
+    function renderConfirmationReceipt() {
+      const container = document.getElementById('confirmationItemsReceipt');
+      container.innerHTML = '';
+
+      let subtotal = 0;
+      state.cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        const row = document.createElement('div');
+        row.className = 'flex justify-between items-center';
+        row.innerHTML = `
+          <span>${item.qty}x ${item.name}</span>
+          <span class="font-semibold tabular-nums">${itemTotal.toFixed(2).replace('.', ',')} €</span>
+        `;
+        container.appendChild(row);
+      });
+
+      const total = subtotal + 2.50;
+      const summaryDiv = document.createElement('div');
+      summaryDiv.className = 'pt-2 border-t border-light-outline-variant/40 dark:border-dark-outline-variant/60 flex justify-between font-bold text-sm';
+      summaryDiv.innerHTML = `
+        <span>Total Acordado con Envío</span>
+        <span class="text-light-primary dark:text-dark-primary tabular-nums">${total.toFixed(2).replace('.', ',')} €</span>
+      `;
+      container.appendChild(summaryDiv);
+    }
+
+    // Filtro visual de colecciones
+    function filterCategory(cat) {
+      const pills = document.querySelectorAll('.category-pill');
+      pills.forEach(p => p.className = 'category-pill shrink-0 px-4 py-2 rounded-full bg-light-surface-container dark:bg-dark-surface-container text-light-on-surface dark:text-dark-on-surface font-label text-xs font-medium cursor-pointer');
+
+      if (cat === 'todos') {
+        document.getElementById('pillTodos').className = 'category-pill shrink-0 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary font-label text-xs font-semibold shadow-sm cursor-pointer';
+      } else if (cat === 'cupcakes') {
+        document.getElementById('pillCupcakes').className = 'category-pill shrink-0 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary font-label text-xs font-semibold shadow-sm cursor-pointer';
+      } else if (cat === 'tartas') {
+        document.getElementById('pillTartas').className = 'category-pill shrink-0 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-on-primary dark:text-dark-on-primary font-label text-xs font-semibold shadow-sm cursor-pointer';
+      }
+    }
+
+    // Restaurar carrito con muestra sugerida
+    function restoreSampleCart() {
+      state.cart = [
+        { name: 'Red Velvet & Vainilla', price: 3.80, qty: 2, img: '../../images/cupcake_redvelvet.jpg', note: 'Glaseado mascarpone' },
+        { name: 'Pistacho & Rosa Silvestre', price: 4.20, qty: 1, img: '../../images/cupcake_pistacho_rosa.jpg', note: 'Caja regalo' }
+      ];
+      renderCart();
+      updateCartBadge();
+      showToast('¡Selección sugerida restaurada en tu cesta!');
+    }
+
+    // Manejo de Búsqueda Interactiva y Estado Vacío
+    function handleSearch(query) {
+      const trimmed = query.trim().toLowerCase();
+      const products = document.querySelectorAll('.product-item');
+      const emptyState = document.getElementById('searchEmptyState');
+      const termEl = document.getElementById('searchedTermText');
+      let visibleCount = 0;
+
+      products.forEach(p => {
+        const text = p.textContent.toLowerCase();
+        if (trimmed === '' || text.includes(trimmed)) {
+          p.style.display = 'flex';
+          visibleCount++;
+        } else {
+          p.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0 && trimmed !== '') {
+        emptyState.classList.remove('hidden');
+        termEl.textContent = `"${query}"`;
+      } else {
+        emptyState.classList.add('hidden');
+      }
+    }
+
+    function resetSearch() {
+      const input = document.getElementById('catalogSearchInput');
+      if (input) {
+        input.value = '';
+        handleSearch('');
+      }
+    }
+
+    // Simulación interactiva del Estado de Carga (Skeleton)
+    function toggleLoadingStateDemo() {
+      const skeleton = document.getElementById('catalogLoadingSkeleton');
+      const grid = document.getElementById('productsGrid');
+      grid.classList.add('hidden');
+      skeleton.classList.remove('hidden');
+      showToast('Actualizando carta de horneado...');
+
+      setTimeout(() => {
+        skeleton.classList.add('hidden');
+        grid.classList.remove('hidden');
+        showToast('Carta de horneado actualizada');
+      }, 900);
+    }
+
+    // Inicialización y garantía de delegación de eventos por si el contenedor bloquea inline handlers
+    document.addEventListener('click', function(e) {
+      const targetBtn = e.target.closest('button, [onclick], [data-screen]');
+      if (!targetBtn) return;
+      
+      const screenTarget = targetBtn.getAttribute('data-screen');
+      if (screenTarget) {
+        goToScreen(screenTarget);
+      }
+    });
+
+    renderCart();
+    updateCartBadge();
+  </script>
+
+
+
+</body></html>

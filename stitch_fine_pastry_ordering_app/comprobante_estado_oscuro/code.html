@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="es" class="dark"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprobante de Pedido — La Nieta de Portella (Tema Oscuro)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#E2492D',
+        'whatsapp': '#25D366',
+        'whatsapp-hover': '#20BA5A',
+        'light-primary': '#B9321B',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FFDAD3',
+        'light-on-primary-container': '#3E0400',
+        'light-secondary': '#8F4C38',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#FFDBCF',
+        'light-on-secondary-container': '#380D02',
+        'light-tertiary': '#77574E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFDBCF',
+        'light-on-tertiary-container': '#2C150F',
+        'light-surface': '#FFF8F6',
+        'light-on-surface': '#231A18',
+        'light-surface-container-low': '#FCF1EE',
+        'light-surface-container': '#F6ECE8',
+        'light-surface-container-high': '#F0E6E2',
+        'light-on-surface-variant': '#534340',
+        'light-outline': '#85736F',
+        'light-outline-variant': '#D8C2BD',
+        'dark-primary': '#FFB4A5',
+        'dark-on-primary': '#650B00',
+        'dark-primary-container': '#772614',
+        'dark-on-primary-container': '#FFDAD3',
+        'dark-secondary': '#FFB4A5',
+        'dark-on-secondary': '#5D180B',
+        'dark-secondary-container': '#7E3021',
+        'dark-on-secondary-container': '#FFDBCF',
+        'dark-tertiary': '#FFB59A',
+        'dark-on-tertiary': '#53220E',
+        'dark-tertiary-container': '#6E3722',
+        'dark-on-tertiary-container': '#FFDBCF',
+        'dark-surface': '#1D100D',
+        'dark-on-surface': '#F8DCD7',
+        'dark-surface-container-low': '#271815',
+        'dark-surface-container': '#2B1C19',
+        'dark-surface-container-high': '#362623',
+        'dark-on-surface-variant': '#E3BEB7',
+        'dark-outline': '#AA8983',
+        'dark-outline-variant': '#5A413B',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '30px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', fontWeight: '600' }],
+        'headline-md-mobile': ['18px', { lineHeight: '24px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '180ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark-surface text-dark-on-surface font-body min-h-[884px] pb-24 antialiased selection:bg-dark-primary selection:text-dark-on-primary" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+  <!-- Header Fijo Superior Oscuro -->
+  <header class="sticky top-0 z-40 bg-dark-surface/95 backdrop-blur-sm border-b border-dark-outline-variant/60 px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../home-catalog-dark/HomeCatalogDark.html" aria-label="Ir a inicio" class="w-9 h-9 rounded-full bg-dark-surface-container flex items-center justify-center text-dark-on-surface hover:bg-dark-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </a>
+      <div>
+        <h1 class="font-headline text-headline-md-mobile font-bold text-dark-on-surface">Comprobante de Pedido</h1>
+        <p class="text-[11px] text-dark-on-surface-variant font-medium">Pedido #LNP-8492</p>
+      </div>
+    </div>
+    <span class="px-2.5 py-1 rounded-full bg-whatsapp/20 text-whatsapp font-label text-xs font-bold flex items-center gap-1 border border-whatsapp/40">
+      <span class="w-2 h-2 rounded-full bg-whatsapp animate-ping"></span>
+      En Obrador
+    </span>
+  </header>
+
+  <!-- Contenido del Comprobante Oscuro -->
+  <main class="px-4 pt-4 space-y-5">
+
+    <!-- Tarjeta de Éxito y WhatsApp Directo Oscuro -->
+    <section class="p-4 rounded-2xl bg-gradient-to-b from-dark-surface-container-high to-dark-surface-container-low border border-dark-outline-variant text-center space-y-3 shadow-md">
+      <div class="w-14 h-14 rounded-full bg-whatsapp text-white flex items-center justify-center mx-auto shadow-lg ring-4 ring-whatsapp/30">
+        <span class="material-symbols-outlined text-3xl">check</span>
+      </div>
+      <div>
+        <span class="px-2.5 py-0.5 rounded-full bg-dark-primary text-dark-on-primary font-label text-[11px] font-bold uppercase tracking-wider">
+          ¡Pedido Recibido con Éxito!
+        </span>
+        <h2 class="font-headline text-headline-lg-mobile font-bold text-dark-on-surface mt-1.5">
+          Estamos horneando tu momento
+        </h2>
+        <p class="text-xs text-dark-on-surface-variant font-body max-w-xs mx-auto mt-1 leading-relaxed">
+          Hemos recibido los detalles de tu encargo en nuestro WhatsApp oficial. Te hemos enviado un mensaje para confirmar la franja de entrega y pago por Bizum.
+        </p>
+      </div>
+
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%2C%20quiero%20hacer%20seguimiento%20de%20mi%20pedido%20%23LNP-8492" target="_blank" class="w-full py-3 px-4 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-label font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer ring-4 ring-whatsapp/20">
+          <span class="material-symbols-outlined text-lg">chat</span>
+          Abrir Conversación en WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Línea de Tiempo del Estado de Elaboración Oscuro -->
+    <section class="p-4 rounded-2xl bg-dark-surface-container-low border border-dark-outline-variant space-y-3">
+      <h3 class="font-headline text-sm font-bold text-dark-on-surface flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent text-lg">timer</span>
+        Estado de tu Pedido
+      </h3>
+
+      <div class="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-dark-outline-variant/60">
+        <!-- Paso 1: Completado -->
+        <div class="relative">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-whatsapp text-white flex items-center justify-center text-[10px]">✓</span>
+          <span class="font-title text-xs font-bold text-dark-on-surface block">Pedido Enviado y Recibido</span>
+          <span class="text-[11px] text-dark-on-surface-variant">Hoy a las 15:40 h · Vía WhatsApp</span>
+        </div>
+
+        <!-- Paso 2: En Proceso Activo -->
+        <div class="relative">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-dark-primary text-dark-on-primary flex items-center justify-center text-[10px] ring-4 ring-dark-primary/30">●</span>
+          <span class="font-title text-xs font-bold text-dark-primary block">Elaboración y Decoración en Obrador</span>
+          <span class="text-[11px] text-dark-on-surface-variant">Preparando bizcocho y montando crema mascarpone fresca</span>
+        </div>
+
+        <!-- Paso 3: Pendiente -->
+        <div class="relative opacity-60">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-dark-surface-container-high border-2 border-dark-outline"></span>
+          <span class="font-title text-xs font-semibold text-dark-on-surface block">Empaquetado y Lazo de Regalo</span>
+          <span class="text-[11px] text-dark-on-surface-variant">Caja con tarjeta caligrafiada</span>
+        </div>
+
+        <!-- Paso 4: Pendiente -->
+        <div class="relative opacity-60">
+          <span class="absolute -left-[27px] top-0.5 w-4 h-4 rounded-full bg-dark-surface-container-high border-2 border-dark-outline"></span>
+          <span class="font-title text-xs font-semibold text-dark-on-surface block">En Camino a tu Domicilio</span>
+          <span class="text-[11px] text-dark-on-surface-variant">Entrega estimada: Hoy entre 17:00 y 18:30 h</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket Recibo de Compra Detallado Oscuro -->
+    <section class="p-4 rounded-2xl bg-dark-surface-container border border-dark-outline-variant space-y-3 shadow-md">
+      <div class="flex items-center justify-between border-b border-dark-outline-variant/60 pb-2.5">
+        <div>
+          <span class="font-display font-bold text-dark-primary text-sm">LA NIETA DE PORTELLA</span>
+          <p class="text-[10px] text-dark-on-surface-variant">Pastelería Fina Artesanal · NIF B-89472910</p>
+        </div>
+        <span class="font-mono text-xs text-dark-outline">TICKET-8492</span>
+      </div>
+
+      <!-- Items Desglosados -->
+      <div class="space-y-2 pt-1">
+        <div class="flex justify-between items-start text-xs">
+          <div>
+            <span class="font-bold text-dark-on-surface">2x Cupcake Red Velvet &amp; Vainilla</span>
+            <p class="text-[11px] text-dark-on-surface-variant">Frosting mascarpone · Caja individual</p>
+          </div>
+          <span class="font-semibold text-dark-on-surface tabular-nums">7,60 €</span>
+        </div>
+
+        <div class="flex justify-between items-start text-xs">
+          <div>
+            <span class="font-bold text-dark-on-surface">1x Cupcake Pistacho &amp; Rosa</span>
+            <p class="text-[11px] text-dark-on-surface-variant">Pistacho de Bronte · Edición gourmet</p>
+          </div>
+          <span class="font-semibold text-dark-on-surface tabular-nums">4,20 €</span>
+        </div>
+
+        <div class="flex justify-between items-start text-xs text-dark-on-surface-variant pt-1 border-t border-dashed border-dark-outline-variant/50">
+          <span>Envío local directo</span>
+          <span class="tabular-nums">2,50 €</span>
+        </div>
+
+        <div class="flex justify-between items-start text-xs text-whatsapp font-medium">
+          <span>Tarjeta artesanal caligrafiada</span>
+          <span>Gratis</span>
+        </div>
+
+        <div class="pt-2 border-t border-dark-outline-variant/60 flex justify-between items-baseline font-bold">
+          <span class="text-sm text-dark-on-surface">Total Pagado / Acordado</span>
+          <span class="text-base text-dark-primary tabular-nums">14,30 €</span>
+        </div>
+      </div>
+
+      <!-- Datos del Cliente y Dedicatoria Oscuro -->
+      <div class="p-2.5 rounded-lg bg-dark-surface-container-low border border-dark-outline-variant/60 text-xs space-y-1 mt-2">
+        <div class="flex justify-between">
+          <span class="text-dark-on-surface-variant">Destinatario:</span>
+          <span class="font-semibold text-dark-on-surface">Claudia Ramos</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-dark-on-surface-variant">Dirección:</span>
+          <span class="text-dark-on-surface">Av. Delicias 42, 3ºB</span>
+        </div>
+        <div class="pt-1 border-t border-dark-outline-variant/40">
+          <span class="text-dark-on-surface-variant block text-[10px]">Dedicatoria en la tarjeta:</span>
+          <p class="italic font-serif text-[11px] text-dark-tertiary mt-0.5">
+            &#34;¡Felicidades por tu nuevo hogar! Disfruta estos dulces.&#34;
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acciones Finales Oscuro -->
+    <div class="flex items-center gap-3 pt-2 pb-6">
+      <a href="../home-catalog-dark/HomeCatalogDark.html" class="flex-1 py-3.5 rounded-full bg-dark-surface-container hover:bg-dark-surface-container-high text-dark-on-surface font-label text-xs font-bold text-center border border-dark-outline-variant transition-colors">
+        Volver al Obrador
+      </a>
+      <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20%E2%9C%A8%20Deseo%20consultar%20una%20duda%20del%20pedido%20%23LNP-8492" target="_blank" class="flex-1 py-3.5 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-label text-xs font-bold text-center shadow-md flex items-center justify-center gap-1.5 transition-colors">
+        <span class="material-symbols-outlined text-base">chat</span>
+        Contactar Obrador
+      </a>
+    </div>
+
+  </main>
+
+
+
+</body></html>
