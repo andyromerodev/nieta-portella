@@ -36,10 +36,10 @@
   <!-- NAVEGACIÓN PRINCIPAL (DESKTOP & MOBILE HEADER)    -->
   <!-- ================================================= -->
   <header class="sticky top-0 z-40 bg-white/90 dark:bg-dark-surface/90 glass-nav border-b border-light-outline-variant/50 dark:border-dark-outline-variant/60 transition-colors">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="w-full max-w-[1600px] mx-auto px-3 min-[1500px]:px-6 h-20 flex items-center justify-between gap-3">
       
       <!-- Logotipo & Marca -->
-      <a href="#inicio" class="flex items-center gap-3 group">
+      <a href="#inicio" class="flex items-center gap-3 group shrink-0">
         <div class="w-11 h-11 rounded-full bg-light-primary dark:bg-dark-primary flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
           <svg class="w-6 h-6 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
@@ -47,48 +47,48 @@
           </svg>
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-lg md:text-xl text-light-primary dark:text-dark-primary tracking-tight leading-tight">
+          <span class="font-display font-bold text-base min-[1180px]:text-lg min-[1500px]:text-xl text-light-primary dark:text-dark-primary tracking-tight leading-tight whitespace-nowrap">
             LA NIETA DE PORTELLA
           </span>
-          <span class="font-label text-[10px] md:text-xs uppercase tracking-widest text-light-on-surface-variant dark:text-dark-on-surface-variant font-semibold">
+          <span class="hidden min-[1240px]:block font-label text-[10px] min-[1500px]:text-xs uppercase tracking-wide min-[1500px]:tracking-widest text-light-on-surface-variant dark:text-dark-on-surface-variant font-semibold whitespace-nowrap">
             Pastelería Fina · Obrador de Autor
           </span>
         </div>
       </a>
 
       <!-- Enlaces de Navegación de Escritorio -->
-      <nav class="hidden lg:flex items-center gap-6 font-label text-sm font-semibold">
-        <a href="/app/" class="text-light-primary dark:text-dark-primary hover:opacity-80 transition-colors">
+      <nav class="hidden lg:flex shrink-0 items-center gap-x-2 min-[1240px]:gap-x-3 min-[1500px]:gap-x-6 font-label text-xs min-[1240px]:text-[13px] min-[1500px]:text-sm font-semibold">
+        <a href="/app/" class="whitespace-nowrap text-light-primary dark:text-dark-primary hover:opacity-80 transition-colors">
           App del obrador
         </a>
-        <a href="#creaciones" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+        <a href="#creaciones" class="whitespace-nowrap text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
           Carta &amp; Cupcakes
         </a>
-        <a href="#obrador" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+        <a href="#obrador" class="whitespace-nowrap text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
           El Obrador
         </a>
-        <a href="#eventos" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+        <a href="#eventos" class="whitespace-nowrap text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
           Tartas de Celebración
         </a>
-        <a href="#como-pedir" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+        <a href="#como-pedir" class="whitespace-nowrap text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
           Cómo Pedir
         </a>
-        <a href="#opiniones" class="text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
+        <a href="#opiniones" class="whitespace-nowrap text-light-on-surface/80 dark:text-dark-on-surface/80 hover:text-light-primary dark:hover:text-dark-primary transition-colors">
           Reseñas
         </a>
       </nav>
 
       <!-- Botón de Acción Principal & Selector de Tema -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 shrink-0">
         <!-- Switch Tema Claro / Oscuro -->
         <button type="button" onclick="toggleTheme()" aria-label="Alternar tema" class="w-10 h-10 rounded-full bg-light-surface-container dark:bg-dark-surface-container border border-light-outline-variant dark:border-dark-outline-variant flex items-center justify-center text-light-primary dark:text-dark-primary hover:scale-105 active:scale-95 transition-all shadow-sm" title="Cambiar Modo">
           <span id="themeIcon" class="material-symbols-outlined text-lg">dark_mode</span>
         </button>
 
         <!-- CTA Pedir por WhatsApp -->
-        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20consultar%20el%20horneado%20de%20hoy%20y%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp hover:bg-[#1ebd59] text-white font-label text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all">
+        <a href="https://wa.me/?text=Hola%20La%20Nieta%20de%20Portella%20✨%20Quisiera%20consultar%20el%20horneado%20de%20hoy%20y%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" aria-label="Pedir por WhatsApp" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-whatsapp hover:bg-[#1ebd59] text-white font-label text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all">
           <span class="material-symbols-outlined text-lg">chat</span>
-          <span>Pedir por WhatsApp</span>
+          <span class="whitespace-nowrap hidden min-[1180px]:inline">Pedir por WhatsApp</span>
         </a>
       </div>
 
